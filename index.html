@@ -12,6 +12,31 @@
       <p>Get 25% OFF on your first order. Order Now</p>
     </div>
     <header>
+      <div class="logo">
+        <img src="images/Logomark.svg" alt="" />
+        <h1>L U X E</h1>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="right-header">
+        <div class="top-search-bar">
+          <img src="images/Search.svg" alt="" />
+          <input type="text" placeholder="Search products" />
+        </div>
+        <button id="carting">
+          <a href="cart.html">
+            <img src="images/Cart.svg" alt="" />
+          <span id="cart-count">0</span>
+          </a>
+        </button>
+        <img src="images/User.svg" alt="" />
+      </div>
       <div class="hamburger-menu">
         <div class="hambar bar1"></div>
         <div class="hambar bar2"></div>
@@ -23,31 +48,24 @@
           <h1>L U X E</h1>
         </div>
         <ul class="Links2">
-          <li class="nav"><a href="#">Home</a></li>
+          <li class="nav"><a href="index.html">Home</a></li>
           <li class="nav"><a href="#">Categories</a></li>
           <li class="nav"><a href="#">About</a></li>
           <li class="nav"><a href="#">Contact</a></li>
         </ul>
-      </div>
-      <div class="logo">
-        <img src="images/Logomark.svg" alt="" />
-        <h1>L U X E</h1>
-      </div>
-      <div class="links">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="right-header">
-        <div class="top-search-bar">
-          <img src="images/Search.svg" alt="" />
-          <input type="text" placeholder="Search products" />
+        <div class="br">
+          <h4><a href="#">Cart</a></h4>
+            <button class="nav" id="carting">
+              <a href="cart.html">
+                <img src="images/Cart.svg" alt="" />
+              <span id="cart-count">0</span>
+              </a>
+            </button>
         </div>
-        <img class="hide" src="images/Cart.svg" alt="" />
-        <img src="images/User.svg" alt="" />
+        <div class="br">
+          <img class="nav" src="images/User.svg" alt="" />
+          <h4 class="nav"><a href="#">Profile</a></h4>
+        </div>
       </div>
     </header>
     <section class="first-body-homepage">
@@ -92,7 +110,13 @@
       <h1>Best Selling</h1>
     </div>
     <section class="third-body-homepage">
-      <div class="each-item">
+      <div
+        class="each-item"
+        id="item1"
+        data-title="Classic Monochrome Tees"
+        data-price="$35.00"
+        data-image="images/MonoChrome-tees.svg"
+      >
         <img src="images/MonoChrome-tees.svg" alt="" />
         <div class="details">
           <h5>Classic Monochrome Tees</h5>
@@ -102,7 +126,13 @@
           </div>
         </div>
       </div>
-      <div class="each-item">
+      <div
+        class="each-item"
+        id="item2"
+        data-title="Monochromatic Wardrobe"
+        data-price="$27.00"
+        data-image="images/MonoChromatic-wardrobe.svg"
+      >
         <img src="images/MonoChromatic-wardrobe.svg" alt="" />
         <div class="details">
           <h5>Monochromatic Wardrobe</h5>
@@ -112,7 +142,13 @@
           </div>
         </div>
       </div>
-      <div class="each-item">
+      <div
+        class="each-item"
+        id="item3"
+        data-title="Essential Neutrals"
+        data-price="$22.00"
+        data-image="images/Essential Neutrals.svg"
+      >
         <img src="images/Essential Neutrals.svg" alt="" />
         <div class="details">
           <h5>Essential Neutrals</h5>
@@ -122,7 +158,13 @@
           </div>
         </div>
       </div>
-      <div class="each-item">
+      <div
+        class="each-item"
+        id="item4"
+        data-title="UTRAANET Black"
+        data-price="$43.00"
+        data-image="images/Utraanet Black.svg"
+      >
         <img src="images/Utraanet Black.svg" alt="" />
         <div class="details">
           <h5>UTRAANET Black</h5>
@@ -152,7 +194,13 @@
       <button>Latest</button>
     </div>
     <section class="third-body-homepage">
-      <div class="each-item">
+      <div
+        class="each-item"
+        id="item5"
+        data-title="Elegant Ebony Sweatshirts"
+        data-price="$35.00"
+        data-image="images/Elegant Ebony Sweatshirts.svg"
+      >
         <img src="images/Elegant Ebony Sweatshirts.svg" alt="" />
         <div class="details">
           <h5>Elegant Ebony Sweatshirts</h5>
@@ -162,7 +210,13 @@
           </div>
         </div>
       </div>
-      <div class="each-item">
+      <div
+        class="each-item"
+        id="item6"
+        data-title="Sleek and Cozy Black"
+        data-price="$57.00"
+        data-image="images/Sleek and Cozy Black.svg"
+      >
         <img src="images/Sleek and Cozy Black.svg" alt="" />
         <div class="details">
           <h5>Sleek and Cozy Black</h5>
@@ -172,7 +226,13 @@
           </div>
         </div>
       </div>
-      <div class="each-item">
+      <div
+        class="each-item"
+        id="item7"
+        data-title="Raw Black Tees"
+        data-price="$19.00"
+        data-image="images/Raw Black Tees.svg"
+      >
         <img src="images/Raw Black Tees.svg" alt="" />
         <div class="details">
           <h5>Raw Black Tees</h5>
@@ -182,7 +242,13 @@
           </div>
         </div>
       </div>
-      <div class="each-item">
+      <div
+        class="each-item"
+        id="item8"
+        data-title="MOCKUP Black"
+        data-price="$30.00"
+        data-image="images/Mockup Black.svg"
+      >
         <img src="images/Mockup Black.svg" alt="" />
         <div class="details">
           <h5>MOCKUP Black</h5>
@@ -250,6 +316,6 @@
       <hr />
       <p>&copy; 2024 BioCode. All rights reserved.</p>
     </div>
+    <script src="app.js"></script>
   </body>
-  <script src="app.js"></script>
 </html>

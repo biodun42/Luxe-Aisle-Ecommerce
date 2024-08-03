@@ -6,7 +6,7 @@
     <link rel="icon" href="images/Logomark.svg" />
     <title>L U X E</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/product.css" />
+    <link rel="stylesheet" href="css/cart.css" />
   </head>
   <body>
     <div class="discount">
@@ -69,140 +69,35 @@
         </div>
       </div>
     </header>
-    <section class="first-body-product" id="product-details"></section>
-    <div class="also-like">
-      <h1>You might also like</h1>
-      <p>SIMILAR PRODUCTS</p>
-    </div>
-    <section class="third-body-homepage">
-      <div
-        class="each-item"
-        id="item1"
-        data-title="Classic Monochrome Tees"
-        data-price="$35.00"
-        data-image="images/MonoChrome-tees.svg"
-      >
-        <img src="images/MonoChrome-tees.svg" alt="" />
-        <div class="details">
-          <h5>Classic Monochrome Tees</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$35.00</p>
-          </div>
+    <section class="first-body-cart">
+      <h1>Cart</h1>
+      <div class="cart">
+        <div class="left-cart">
+          <h1>Your Cart</h1>
+          <hr />
+          <div id="cart-items" class="cart-items"></div>
         </div>
-      </div>
-      <div
-        class="each-item"
-        id="item2"
-        data-title="Monochromatic Wardrobe"
-        data-price="$27.00"
-        data-image="images/MonoChromatic-wardrobe.svg"
-      >
-        <img src="images/MonoChromatic-wardrobe.svg" alt="" />
-        <div class="details">
-          <h5>Monochromatic Wardrobe</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$27.00</p>
+        <div class="right-cart">
+          <h4>Order Summary</h4>
+          <div class="cart-total">
+            <h5>Subtotal:</h5>
+            <h4 id="subtotal-price">$0.00</h4>
           </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item3"
-        data-title="Essential Neutrals"
-        data-price="$22.00"
-        data-image="images/Essential Neutrals.svg"
-      >
-        <img src="images/Essential Neutrals.svg" alt="" />
-        <div class="details">
-          <h5>Essential Neutrals</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$22.00</p>
+          <div class="cart-total">
+            <h5>Shipping:</h5>
+            <h4>Free</h4>
           </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item4"
-        data-title="UTRAANET Black"
-        data-price="$43.00"
-        data-image="images/Utraanet Black.svg"
-      >
-        <img src="images/Utraanet Black.svg" alt="" />
-        <div class="details">
-          <h5>UTRAANET Black</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$43.00</p>
+          <div class="cart-total">
+            <h5>Tax:</h5>
+            <h4 id="tax-amount">$0.00</h4>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="third-body-homepage">
-      <div
-        class="each-item"
-        id="item5"
-        data-title="Elegant Ebony Sweatshirts"
-        data-price="$35.00"
-        data-image="images/Elegant Ebony Sweatshirts.svg"
-      >
-        <img src="images/Elegant Ebony Sweatshirts.svg" alt="" />
-        <div class="details">
-          <h5>Elegant Ebony Sweatshirts</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$35.00</p>
+          <hr />
+          <div class="cart-total">
+            <h3>Total</h3>
+            <h4 id="total-price">$0.00</h4>
           </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item6"
-        data-title="Sleek and Cozy Black"
-        data-price="$57.00"
-        data-image="images/Sleek and Cozy Black.svg"
-      >
-        <img src="images/Sleek and Cozy Black.svg" alt="" />
-        <div class="details">
-          <h5>Sleek and Cozy Black</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$57.00</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item7"
-        data-title="Raw Black Tees"
-        data-price="$19.00"
-        data-image="images/Raw Black Tees.svg"
-      >
-        <img src="images/Raw Black Tees.svg" alt="" />
-        <div class="details">
-          <h5>Raw Black Tees</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$19.00</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item8"
-        data-title="MOCKUP Black"
-        data-price="$30.00"
-        data-image="images/Mockup Black.svg"
-      >
-        <img src="images/Mockup Black.svg" alt="" />
-        <div class="details">
-          <h5>MOCKUP Black</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$30.00</p>
-          </div>
+          <button>Checkout</button>
+          <h3><a href="index.html">Continue shopping</a></h3>
         </div>
       </div>
     </section>
@@ -239,7 +134,7 @@
         <h3>Privacy Policy</h3>
       </div>
       <div class="column2">
-        <h4>Comapany</h4>
+        <h4>Company</h4>
         <h3>About us</h3>
         <h3>Contact</h3>
         <h3>Careers</h3>
@@ -263,6 +158,6 @@
       <hr />
       <p>&copy; 2024 BioCode. All rights reserved.</p>
     </div>
+    <script src="app.js"></script>
   </body>
-  <script src="app.js"></script>
 </html>

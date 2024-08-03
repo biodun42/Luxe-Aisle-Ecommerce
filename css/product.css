@@ -231,6 +231,9 @@
   .prod{
     gap: 10px;
   }
+  .quantity h1{
+    font-size: 17px;
+  }
 }
 @media screen and (max-width: 672px){
   .prod{

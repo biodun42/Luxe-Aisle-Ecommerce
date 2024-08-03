@@ -118,6 +118,10 @@
   font-weight: 500;
   color: #5c5f6a;
 }
+.sizes button:active {
+  background-color: #0e1422;
+  color: #fff;
+}
 .quantity {
   width: 45%;
   background-color: transparent;
@@ -197,18 +201,12 @@
   color: #878a92;
   margin-bottom: -10px;
 }
-.third-body-homepage{
-  padding: 25px 60px 0 60px;
-}
 @media screen and (max-width: 1045px) {
   .prod{
     padding: 40px 20px;
   }
   .also-like{
     padding: 100px 20px 20px 20px;
-  }
-  .third-body-homepage{
-    padding: 25px 20px 0 20px;
   }
 }
 @media screen and (max-width: 923px) {
@@ -258,9 +256,6 @@
   }
   .also-like{
     padding: 100px 10px 15px 10px;
-  }
-  .third-body-homepage{
-    padding: 10px 10px 0 10px;
   }
 }
 @media screen and (max-width: 337px) {

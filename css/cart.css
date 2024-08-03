@@ -19,9 +19,7 @@
   font-size: 35px;
   font-style: normal;
   font-weight: 600;
-  margin-bottom: 2rem;
-  text-decoration: underline;
-  padding: 40px 60px 0 60px;
+  padding: 20px 60px 20px 60px;
 }
 .cart {
   width: 100%;
@@ -42,9 +40,9 @@
   align-items: start;
   gap: 30px;
 }
-.left-cart hr{
+.left-cart hr {
   width: 100%;
-  border: 1px solid #E6E7E8;
+  border: 1px solid #e6e7e8;
 }
 .left-cart h1 {
   font-family: "inter", sans-serif;
@@ -63,7 +61,6 @@
   gap: 20px;
 }
 .each-cart-detail {
-  margin-top: 30px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -106,7 +103,7 @@
   font-weight: 600;
 }
 .quantity {
-  border: 1px solid #E6E7E8;
+  border: 1px solid #e6e7e8;
   width: 15%;
   display: flex;
   flex-direction: row;
@@ -131,7 +128,7 @@
   margin: 0;
 }
 .close {
-  border: 1px solid #E6E7E8;
+  border: 1px solid #e6e7e8;
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -149,18 +146,17 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
-  border: 1px solid #E6E7E8;
+  border: 1px solid #e6e7e8;
   border-radius: 10px;
 }
-.right-cart h4{
+.right-cart h4 {
   font-family: "inter", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   text-align: center;
-  text-decoration: underline;
 }
-.cart-total{
+.cart-total {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -168,39 +164,38 @@
   align-items: center;
   gap: 20px;
 }
-.cart-total h5{
+.cart-total h5 {
   font-family: "inter", sans-serif;
   font-size: 17px;
   font-style: normal;
   font-weight: 600;
-  text-decoration: none;
-  color: #5C5F6A;
+  color: #5c5f6a;
 }
-.cart-total h4{
+.cart-total h4 {
   font-family: "inter", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   width: fit-content;
   text-decoration: none;
-  color: #0E1422;
+  color: #0e1422;
 }
-.right-cart hr{
+.right-cart hr {
   width: 100%;
-  border: 1px solid #E6E7E8;
+  border: 1px solid #e6e7e8;
 }
-.cart-total h3{
+.cart-total h3 {
   font-family: "inter", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   text-decoration: none;
-  color: #0E1422;
+  color: #0e1422;
 }
 .right-cart button {
   width: 100%;
   padding: 15px;
-  background-color: #0E1422;
+  background-color: #0e1422;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -210,22 +205,28 @@
   font-weight: 500;
   cursor: pointer;
 }
-.right-cart h3 a{
+.right-cart h3 a {
   font-family: "inter", sans-serif;
   font-size: 17px;
   font-style: normal;
   font-weight: 500;
   text-decoration: underline;
-  color: #0E1422;
+  color: #0e1422;
 }
-.sizes.active{
-  background-color: #0E1422;
+.sizes.active {
+  background-color: #0e1422;
   color: #fff;
 }
 @media screen and (max-width: 1045px) {
-  .cart{
+  .cart {
     padding: 50px 20px 160px 20px;
     gap: 20px;
+  }
+  .first-body-cart h1 {
+    padding: 30px 20px 20px 20px;
+  }
+  .left-cart h1 {
+    padding: 0;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -235,23 +236,55 @@
   .each-cart-detail h3 {
     font-size: 18px;
   }
-  .right-cart{
+  .right-cart {
     padding: 20px;
   }
 }
 @media screen and (max-width: 898px) {
-  .cart{
+  .cart {
     flex-direction: column;
     padding-bottom: 50px;
     gap: 20px;
   }
-  .right-cart{
+  .right-cart {
     width: 100%;
   }
 }
 @media screen and (max-width: 650px) {
-  .cart{
+  .content-name h1{
+    width: fit-content;
+  }
+  .cart {
     padding-left: 10px;
     padding-right: 10px;
+  }
+  .thumbnails {
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+  }
+  .quantity {
+    width: 20%;
+  }
+  .left-cart{
+    overflow-x: scroll;
+    scrollbar-width: none;
+    width: 100%;
+  }
+  .left-cart hr{
+    width: 100%;
+    min-width: 700px;
+  }
+  .each-cart-detail{
+    width: 100%;
+    min-width: 700px;
+  }
+  .cart {
+    padding-top: 20px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .first-body-cart h1 {
+    font-size: 30px;
   }
 }

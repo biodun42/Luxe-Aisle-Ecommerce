@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   
       localStorage.setItem("cart", JSON.stringify(cart));
-      window.location.href = "cart.html";
+      window.location.href = "collection.html";
     });
   
     // Add active class to size buttons
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cartItemsDiv.innerHTML += cartItem;
     });
 
-    const tax = subtotal * 0.05;  // Assuming 5% tax
+    const tax = subtotal * 0.05;
     const total = subtotal + tax;
 
     subtotalPriceSpan.innerText = `$${subtotal.toFixed(2)}`;

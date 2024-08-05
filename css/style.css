@@ -7,6 +7,7 @@
 }
 body.active {
   position: fixed;
+  max-width: 100%;
 }
 .discount {
   background-color: #0e1422;
@@ -246,10 +247,14 @@ header {
   color: white;
   border: none;
   border-radius: 4px;
+}
+.first-body-left button a{
   font-family: "Inter", sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
+  text-decoration: none;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -601,10 +606,27 @@ footer {
   color: #5c5f6a;
   text-align: center;
 }
+.margin{
+  margin-top: -8rem;
+}
+#collection{
+  font-size: 32px;
+  font-weight: 600;
+  color: #0e1422;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  text-align: start;
+  margin-bottom: -3rem;
+  padding-left: 60px;
+  padding-top: 60px;
+}
 
 @media screen and (max-width: 1045px) {
   .each-ab p {
     width: 100%;
+  }
+  #collection{
+    padding-left: 20px;
   }
   header {
     padding: 19px 20px;
@@ -680,6 +702,9 @@ footer {
   }
   .fifth-body-homepage {
     padding: 60px 10px;
+  }
+  #collection{
+    padding-left: 10px;
   }
   footer {
     padding: 40px 10px;

@@ -192,18 +192,22 @@
   text-decoration: none;
   color: #0e1422;
 }
-.right-cart button {
+.right-cart a button {
   width: 100%;
   padding: 15px;
   background-color: #0e1422;
-  color: #fff;
   border: none;
   border-radius: 5px;
   font-family: "inter", sans-serif;
   font-size: 17px;
   font-style: normal;
   font-weight: 500;
+  color: #fff;
   cursor: pointer;
+}
+.right-cart a{
+  width: 100%;
+  text-decoration: none;
 }
 .right-cart h3 a {
   font-family: "inter", sans-serif;

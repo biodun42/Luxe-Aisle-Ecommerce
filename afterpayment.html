@@ -33,7 +33,7 @@
         <button id="carting">
           <a href="cart.html">
             <img src="images/Cart.svg" alt="" />
-          <span id="cart-count">0</span>
+            <span id="cart-count">0</span>
           </a>
         </button>
         <img src="images/User.svg" alt="" />
@@ -56,12 +56,12 @@
         </ul>
         <div class="br">
           <h4><a href="#">Cart</a></h4>
-            <button class="nav" id="carting">
-              <a href="cart.html">
-                <img src="images/Cart.svg" alt="" />
+          <button class="nav" id="carting">
+            <a href="cart.html">
+              <img src="images/Cart.svg" alt="" />
               <span id="cart-count">0</span>
-              </a>
-            </button>
+            </a>
+          </button>
         </div>
         <div class="br">
           <img class="nav" src="images/User.svg" alt="" />
@@ -69,35 +69,20 @@
         </div>
       </div>
     </header>
-    <section class="first-body-cart">
-      <h1>Your Cart</h1>
-      <div class="cart">
-        <div class="left-cart">
-          <hr />
-          <div id="cart-items" class="cart-items"></div>
-        </div>
-        <div class="right-cart">
-          <h4>Order Summary</h4>
-          <div class="cart-total">
-            <h5>Subtotal:</h5>
-            <h4 id="subtotal-price">$0.00</h4>
-          </div>
-          <div class="cart-total">
-            <h5>Shipping:</h5>
-            <h4>Free</h4>
-          </div>
-          <div class="cart-total">
-            <h5>Tax:</h5>
-            <h4 id="tax-amount">$0.00</h4>
-          </div>
-          <hr />
-          <div class="cart-total">
-            <h3>Total</h3>
-            <h4 id="total-price">$0.00</h4>
-          </div>
-          <a href="#"><button id="checkout-button">Checkout</button></a>
-          <h3><a href="collection.html">Continue shopping</a></h3>
-        </div>
+    <section class="first-body-cart after-payment">
+      <h1>Successful Order</h1>
+      <div class="after-pay">
+        <img src="images/after-payment.svg" alt="" />
+        <h2>Thank you for shopping</h2>
+        <p>
+          Your order has been successfully placed and is <br />
+          now being processed.
+        </p>
+        <a href="collection.html"
+          ><button>
+            Make a new order
+            <img src="images/Arrow Right.svg" alt="" /></button
+        ></a>
       </div>
     </section>
     <footer>
@@ -107,7 +92,7 @@
           <h1>Luxe Aisle</h1>
         </div>
         <h4>
-          BioCode is a YouTube channel for <br />
+          DevCut is a YouTube channel for <br />
           practical project-based learning.
         </h4>
         <div class="icons">
@@ -148,6 +133,5 @@
       <p>&copy; 2024 BioCode. All rights reserved.</p>
     </div>
     <script src="app.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>

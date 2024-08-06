@@ -1,67 +1,67 @@
 [
   {
-    "id": "item20",
+    "id": "item1",
     "title": "Ventana Italian Suit",
     "price": "$54.00",
     "image": "images/man-posing-with-white-flower-medium-shot.png"
   },
   {
-    "id": "item18",
-    "title": "Aurelia Viscose-Hemp",
+    "id": "item2",
+    "title": "Aurelia Viscose",
     "price": "$47.00",
     "image": "images/woman-long-sleeve-dress-casual-wear-apparel-full-body.png"
   },
   {
-    "id": "item1",
-    "title": "Classic Monochrome Tees",
+    "id": "item3",
+    "title": "Monochrome Tees",
     "price": "$35.00",
     "image": "images/MonoChrome-tees.svg"
   },
   {
-    "id": "item13",
+    "id": "item4",
     "title": "Classic Sun Dress",
     "price": "$75.00",
     "image": "images/woman-wearing-sundress.png"
   },
   {
-    "id": "item2",
-    "title": "Monochromatic Wardrobe",
+    "id": "item5",
+    "title": "French Terry Polo",
     "price": "$27.00",
     "image": "images/MonoChromatic-wardrobe.svg"
   },
   {
-    "id": "item18",
+    "id": "item6",
     "title": "Cruz Poplin",
     "price": "$20.00",
     "image": "images/stock-photo-portrait-gorgeous-brunette-beautiful-yellow-blue-overall-suit-moving-smiling-down-fashion-portrait.png"
   },
   {
-    "id": "item3",
+    "id": "item7",
     "title": "Essential Neutrals",
     "price": "$22.00",
     "image": "images/Essential Neutrals.svg"
   },
   {
-    "id": "item17",
+    "id": "item8",
     "title": "Pauline Linen Midi",
     "price": "$32.00",
     "image": "images/curly-girl-beautiful-dress.png"
   },
   {
-    "id": "item4",
-    "title": "UTRAANET Black",
+    "id": "item9",
+    "title": "Utraanet Black",
     "price": "$43.00",
     "image": "images/Utraanet Black.svg"
   },
   {
-    "id": "item14",
+    "id": "item10",
     "title": "Italian Denim Dress",
     "price": "$49.00",
     "image": "images/still-life-spring-wardrobe-switch.png"
   },
   {
-    "id": "item5",
-    "title": "Elegant Ebony Sweatshirts",
+    "id": "item11",
+    "title": "Elegant Sweatshirts",
     "price": "$35.00",
     "image": "images/Elegant Ebony Sweatshirts.svg"
   },
@@ -72,51 +72,51 @@
     "image": "images/portrait-young-adult-wearing-hoodie-mockup.png"
   },
   {
-    "id": "item6",
-    "title": "Sleek and Cozy Black",
+    "id": "item13",
+    "title": "Cozy Black",
     "price": "$57.00",
     "image": "images/Sleek and Cozy Black.svg"
   },
   {
-    "id": "item7",
+    "id": "item14",
     "title": "Raw Black Tees",
     "price": "$19.00",
     "image": "images/Raw Black Tees.svg"
   },
   {
-    "id": "item8",
+    "id": "item15",
     "title": "MOCKUP Black",
     "price": "$30.00",
     "image": "images/Mockup Black.svg"
   },
   {
-    "id": "item9",
-    "title": "Bright and Bold Tees",
-    "price": "$20.00",
-    "image": "images/Bright and Bold Tees.svg"
-  },
-  {
-    "id": "item10",
-    "title": "Neutrals and Nudes",
-    "price": "$25.00",
-    "image": "images/Neutrals and Nudes.svg"
-  },
-  {
-    "id": "item11",
-    "title": "Color Splash Vibes",
-    "price": "$25.00",
-    "image": "images/Color Splash Vibes.svg"
-  },
-  {
-    "id": "item15",
-    "title": "Luxe Capsule Essentials",
-    "price": "$39.00",
-    "image": "images/black-man-smiling.png"
-  },
-  {
     "id": "item16",
-    "title": "Soft Linen Dress",
-    "price": "$27.00",
-    "image": "images/portrait-young-woman.png"
+    "title": "Nubuck Jacket",
+    "price": "$67.00",
+    "image": "images/still-life-rendering-jackets-display.png"
+  },
+  {
+    "id": "item17",
+    "title":"Brown Beige Pants",
+    "price": "$37.00",
+    "image": "images/hand-holding-light-brown-beige-pants.png"
+  },
+  {
+    "id": "item18",
+    "title": "Castello Linen Shirt",
+    "price": "$42.00",
+    "image": "images/short-sleeve-shirt-cloth-hanger-with-white-wall-background.png"
+  },
+  {
+    "id": "item19",
+    "title": "Alto Trucker",
+    "price": "$45.00",
+    "image": "images/shirt-hanger-with-green-background.png"
+  },
+  {
+    "id": "item20",
+    "title": "Italian Wool Tuxedo",
+    "price": "$98.00",
+    "image": "images/portrait-young-businessman.png"
   }
 ]

@@ -37,10 +37,18 @@
         </button>
         <img src="images/User.svg" alt="" />
       </div>
-      <div class="hamburger-menu">
-        <div class="hambar bar1"></div>
-        <div class="hambar bar2"></div>
-        <div class="hambar bar3"></div>
+      <div class="split">
+        <button id="carting">
+          <a href="cart.html">
+            <img src="images/Cart.svg" alt="" />
+            <span id="cart-count2">0</span>
+          </a>
+        </button>
+        <div class="hamburger-menu">
+          <div class="hambar bar1"></div>
+          <div class="hambar bar2"></div>
+          <div class="hambar bar3"></div>
+        </div>
       </div>
       <div class="off-screen-menu">
         <div class="logo">
@@ -54,17 +62,11 @@
           <li class="nav"><a href="#">Contact</a></li>
         </ul>
         <div class="br">
-          <h4><a href="#">Cart</a></h4>
-          <button class="nav" id="carting">
-            <a href="cart.html">
-              <img src="images/Cart.svg" alt="" />
-              <span id="cart-count">0</span>
-            </a>
-          </button>
+          <h4><a href="cart.html">Cart</a></h4>
         </div>
         <div class="br">
-          <img class="nav" src="images/User.svg" alt="" />
           <h4 class="nav"><a href="#">Profile</a></h4>
+          <img class="nav" src="images/User.svg" alt="" />
         </div>
       </div>
     </header>
@@ -111,72 +113,8 @@
       <h3>SHOP NOW</h3>
       <h1>Best Selling</h1>
     </div>
-    <section class="third-body-homepage">
-      <div
-        class="each-item"
-        id="item1"
-        data-title="Monochrome Tees"
-        data-price="$35.00"
-        data-image="images/MonoChrome-tees.svg"
-      >
-        <img src="images/MonoChrome-tees.svg" alt="" />
-        <div class="details">
-          <h5>Monochrome Tees</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$35.00</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item2"
-        data-title="French Terry Polo"
-        data-price="$27.00"
-        data-image="images/MonoChromatic-wardrobe.svg"
-      >
-        <img src="images/MonoChromatic-wardrobe.svg" alt="" />
-        <div class="details">
-          <h5>French Terry Polo</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$27.00</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item3"
-        data-title="Essential Neutrals"
-        data-price="$22.00"
-        data-image="images/Essential Neutrals.svg"
-      >
-        <img src="images/Essential Neutrals.svg" alt="" />
-        <div class="details">
-          <h5>Essential Neutrals</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$22.00</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item4"
-        data-title="Utraanet Black"
-        data-price="$43.00"
-        data-image="images/Utraanet Black.svg"
-      >
-        <img src="images/Utraanet Black.svg" alt="" />
-        <div class="details">
-          <h5>Utraanet Black</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$43.00</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="third-body-homepage" id="similar-products">
+      </section>
     <section class="fourth-body-homepage">
       <div class="fourth-body-left">
         <h1>Browse Our Fashion Paradise!</h1>
@@ -301,8 +239,9 @@
         <h3>Careers</h3>
       </div>
       <div class="column2">
-        <h4><a href="collection.html">Collection</a>/h4>
-        <h3>My Account</h3>
+        <h4>Shop</h4>
+        <h3><a href="collection.html">Collection</a></h3>
+        <h3><a href="#">My Account</a></h3>
         <h3><a href="cart.html">Cart</a></h3>
       </div>
       <div class="column3">

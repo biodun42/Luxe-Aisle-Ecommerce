@@ -18,29 +18,49 @@ navs.forEach((nav) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const cartCount = document.getElementById("cart-count");
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCountMobile = document.getElementById("cart-count2");
+  
+  if (cartCount && cartCountMobile) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.textContent = totalItems;
+    cartCountMobile.textContent = totalItems;
+  } else {
+    console.error("Cart count elements not found");
+  }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".each-item");
-
-  items.forEach((item) => {
-    item.addEventListener("click", () => {
-      const title = item.getAttribute("data-title");
-      const price = item.getAttribute("data-price");
-      const image = item.getAttribute("data-image");
-
-      const queryParams = new URLSearchParams({
-        title: title,
-        price: price,
-        image: image,
+function loadItems() {
+  let divOne = document.getElementById("third-body-homepage");
+  fetch("./product.json")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach((item, index) => {
+        divOne.innerHTML += `
+          <div class="each-item" 
+          id="${item.id}" 
+          data-title="${item.title}" 
+          data-price="${item.price}" 
+          data-image="${item.image}">
+            <img src="${item.image}" alt="${item.title}" />
+            <div class="details">
+              <h5>${item.title}</h5>
+              <div class="each-item-price">
+                <button>IN STOCK</button>
+                <p>${item.price}</p>
+              </div>
+            </div>
+          </div>
+        `;
       });
 
-      window.location.href = `product.html?${queryParams.toString()}`;
-    });
-  });
-});
+      goToProductPage();
+    })
+    .catch(error => console.log(error));
+}
+
+loadItems();
+
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const title = urlParams.get("title");
@@ -280,3 +300,61 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+async function loadRandomProducts() {
+  try {
+    const response = await fetch('./product.json');
+    const data = await response.json();
+    
+    // Shuffle array to get random products
+    const shuffled = data.sort(() => 0.5 - Math.random());
+    const selectedProducts = shuffled.slice(0, 4);
+
+    const productContainer = document.getElementById('similar-products');
+    selectedProducts.forEach(product => {
+      const productElement = document.createElement('div');
+      productElement.classList.add('each-item');
+      productElement.setAttribute('data-title', product.title);
+      productElement.setAttribute('data-price', product.price);
+      productElement.setAttribute('data-image', product.image);
+      
+      productElement.innerHTML = `
+        <img src="${product.image}" alt="${product.title}" />
+        <div class="details">
+          <h5>${product.title}</h5>
+          <div class="each-item-price">
+            <button>IN STOCK</button>
+            <p>${product.price}</p>
+          </div>
+        </div>
+      `;
+      
+      productContainer.appendChild(productElement);
+    });
+
+    goToProductPage();
+  } catch (error) {
+    console.error('Error loading products:', error);
+  }
+}
+
+loadRandomProducts();
+
+function goToProductPage(){
+  const items = document.querySelectorAll(".each-item");
+items.forEach((item) => {
+  item.addEventListener("click", () => {
+    const title = item.getAttribute("data-title");
+    const price = item.getAttribute("data-price");
+    const image = item.getAttribute("data-image");
+
+    const queryParams = new URLSearchParams({
+      title: title,
+      price: price,
+      image: image,
+    });
+
+    window.location.href = `product.html?${queryParams.toString()}`;
+  });
+});
+}
+goToProductPage();

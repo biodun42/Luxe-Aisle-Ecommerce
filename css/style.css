@@ -66,18 +66,18 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 20px;
 }
 .right-header button,
-.br button {
-  padding: 10px 20px;
+.split button {
+  padding: 10px 15px;
   background-color: transparent;
   border: 1px solid #e6e7e8;
   border-radius: 4px;
   cursor: pointer;
 }
 .right-header button a,
-.br button a {
+.split button a {
   text-decoration: none;
   color: #5c5f6a;
   display: flex;
@@ -86,7 +86,7 @@ header {
   gap: 6px;
 }
 .right-header button a span,
-.br button a span {
+.split button a span {
   font-family: "Inter", sans-serif;
   font-size: 17px;
   font-style: normal;
@@ -205,7 +205,13 @@ header {
   font-weight: 400;
   font-family: "Inter", sans-serif;
 }
-.hamburger-menu {
+.split{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.split {
   display: none;
 }
 
@@ -579,6 +585,15 @@ footer {
   color: #5c5f6a;
   cursor: pointer;
 }
+.column2 h3 a{
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  color: #5c5f6a;
+  cursor: pointer;
+  text-decoration: none;
+}
 .column3 h2 {
   color: #878a92;
   font-family: "Inter", sans-serif;
@@ -636,10 +651,11 @@ footer {
     padding: 80px 20px;
   }
   .third-body-homepage {
-    padding: 80px 20px;
+    padding: 40px 20px;
   }
   .fourth-body-homepage {
     padding: 40px 20px;
+    margin-bottom: 3rem;
   }
   .fifth-body-homepage {
     padding: 60px 20px;
@@ -672,8 +688,10 @@ footer {
   .links ul {
     display: none;
   }
-  .hamburger-menu {
+  .split {
     display: block;
+    display: flex;
+    flex-direction: row;
   }
   .right-header {
     display: none;
@@ -687,10 +705,10 @@ footer {
 }
 @media screen and (max-width: 650px) {
   .first-body-homepage {
-    padding: 40px 10px;
+    padding: 20px 10px;
   }
   .second-body-homepage {
-    padding: 80px 10px;
+    padding: 30px 10px;
   }
   .third-body-homepage {
     padding: 30px 10px;

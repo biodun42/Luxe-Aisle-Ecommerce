@@ -437,14 +437,14 @@ document.addEventListener("DOMContentLoaded", function () {
       loginButton.textContent = "Sign Up";
       forgotPassword.style.display = "none";
       switchAccount.innerHTML =
-        'Already have an account? <a href="#" id="switch-to-signup">Login</a>';
-      passwordContainer.style.display = "block";
+        'Already have an account? <a href="#" id="switch-to-login">Login</a>';
+      passwordContainer.style.display = "none";
     }
     addSwitchLinkEventListener();
   }
 
   function addSwitchLinkEventListener() {
-    const switchLink = document.getElementById("switch-to-signup");
+    const switchLink = document.getElementById("switch-to-signup") || document.getElementById("switch-to-login");
     switchLink.addEventListener("click", function (event) {
       event.preventDefault();
       switchForm();

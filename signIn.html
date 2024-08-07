@@ -19,8 +19,8 @@
       </div>
       <div class="links">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="collection.html">Collection</a></li>
+          <li><a href="#discount">Home</a></li>
+          <li><a href="#discount">Collection</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -40,7 +40,7 @@
       </div>
       <div class="split">
         <button id="carting">
-          <a href="cart.html">
+          <a href="#discount">
             <img src="images/Cart.svg" alt="" />
             <span id="cart-count2">0</span>
           </a>
@@ -57,13 +57,13 @@
           <h1>L U X E</h1>
         </div>
         <ul class="Links2">
-          <li class="nav"><a href="index.html">Home</a></li>
-          <li class="nav"><a href="collection.html">Collection</a></li>
+          <li class="nav"><a href="#discount">Home</a></li>
+          <li class="nav"><a href="#discount">Collection</a></li>
           <li class="nav"><a href="#">About</a></li>
           <li class="nav"><a href="#">Contact</a></li>
         </ul>
         <div class="br">
-          <h4><a href="cart.html">Cart</a></h4>
+          <h4><a href="#discount">Cart</a></h4>
         </div>
         <div class="br">
           <h4 class="nav"><a href="#">Profile</a></h4>
@@ -71,20 +71,31 @@
         </div>
       </div>
     </header>
-    <section class="first-body-cart after-payment">
-      <h1>Successful Order</h1>
-      <div class="after-pay">
-        <img src="images/after-payment.svg" alt="" />
-        <h2>Thank you for shopping</h2>
-        <p>
-          Your order has been successfully placed and is <br />
-          now being processed.
-        </p>
-        <a href="collection.html"
-          ><button>
-            Make a new order
-            <img src="images/Arrow Right.svg" alt="" /></button
-        ></a>
+    <section class="first-body-cart">
+      <h1 id="form-title">Login</h1>
+      <div class="signin">
+        <button>
+          <img src="images/Google.svg" alt="" />
+          <span>Continue with Google</span>
+        </button>
+        <div class="or-line">
+          <div class="line"></div>
+          <span>or</span>
+          <div class="line"></div>
+        </div>
+        <form class="form" id="login-form" action="https://formspree.io/f/xrbzkbgz" method="POST">
+          <div>
+            <label for="Email">Email</label>
+            <input type="text" id="email" name="email" required />
+          </div>
+          <div id="password-container">
+            <label for="Password">Password</label>
+            <input type="password" id="password" name="password" />
+          </div>
+          <button id="login" type="submit">Login</button>
+        </form>
+        <p id="forgot-password">Forgot your password? <a href="#">Reset it</a></p>
+        <p id="switch-account">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
       </div>
     </section>
     <footer>
@@ -107,19 +118,19 @@
         <h4>Support</h4>
         <h3>FAQ</h3>
         <h3>Terms of use</h3>
-        <h3 id="sign_out><a href="#">Sign out</a></h3>
+        <h3>Privacy Policy</h3>
       </div>
       <div class="column2">
-        <h4>Comapany</h4>
+        <h4>Company</h4>
         <h3>About us</h3>
         <h3>Contact</h3>
         <h3>Careers</h3>
       </div>
       <div class="column2">
         <h4>Shop</h4>
-        <h3><a href="collection.html">Collection</a></h3>
-        <h3><a href="#">My Account</a></h3>
-        <h3><a href="cart.html">Cart</a></h3>
+        <h3><a href="#discount">Collection</a></h3>
+        <h3><a href="#discount">My Account</a></h3>
+        <h3><a href="#discount">Cart</a></h3>
       </div>
       <div class="column3">
         <h2>Accepted Payments</h2>
@@ -135,5 +146,6 @@
       <p>&copy; 2024 BioCode. All rights reserved.</p>
     </div>
     <script src="app.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

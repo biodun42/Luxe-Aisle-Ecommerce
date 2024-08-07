@@ -19,7 +19,7 @@ navs.forEach((nav) => {
 document.addEventListener("DOMContentLoaded", () => {
   const cartCount = document.getElementById("cart-count");
   const cartCountMobile = document.getElementById("cart-count2");
-  
+
   if (cartCount && cartCountMobile) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function loadItems() {
   let divOne = document.getElementById("third-body-homepage");
   fetch("./product.json")
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       data.forEach((item, index) => {
         divOne.innerHTML += `
           <div class="each-item" 
@@ -56,7 +56,7 @@ function loadItems() {
 
       goToProductPage();
     })
-    .catch(error => console.log(error));
+    .catch((error) => console.log(error));
 }
 
 loadItems();
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
+
     if (cart.length === 0) {
       const Toast = Swal.mixin({
         toast: true,
@@ -288,11 +288,11 @@ document.addEventListener("DOMContentLoaded", () => {
         didOpen: (toast) => {
           toast.onmouseenter = Swal.stopTimer;
           toast.onmouseleave = Swal.resumeTimer;
-        }
+        },
       });
       Toast.fire({
         icon: "error",
-        title: "Your cart is empty"
+        title: "Your cart is empty",
       });
     } else {
       window.location.href = "checkout.html";
@@ -302,21 +302,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadRandomProducts() {
   try {
-    const response = await fetch('./product.json');
+    const response = await fetch("./product.json");
     const data = await response.json();
-    
-    // Shuffle array to get random products
+
     const shuffled = data.sort(() => 0.5 - Math.random());
     const selectedProducts = shuffled.slice(0, 4);
 
-    const productContainer = document.getElementById('similar-products');
-    selectedProducts.forEach(product => {
-      const productElement = document.createElement('div');
-      productElement.classList.add('each-item');
-      productElement.setAttribute('data-title', product.title);
-      productElement.setAttribute('data-price', product.price);
-      productElement.setAttribute('data-image', product.image);
-      
+    const productContainer = document.getElementById("similar-products");
+    selectedProducts.forEach((product) => {
+      const productElement = document.createElement("div");
+      productElement.classList.add("each-item");
+      productElement.setAttribute("data-title", product.title);
+      productElement.setAttribute("data-price", product.price);
+      productElement.setAttribute("data-image", product.image);
+
       productElement.innerHTML = `
         <img src="${product.image}" alt="${product.title}" />
         <div class="details">
@@ -327,34 +326,136 @@ async function loadRandomProducts() {
           </div>
         </div>
       `;
-      
+
       productContainer.appendChild(productElement);
     });
 
     goToProductPage();
   } catch (error) {
-    console.error('Error loading products:', error);
+    console.error("Error loading products:", error);
   }
 }
 
 loadRandomProducts();
 
-function goToProductPage(){
+function goToProductPage() {
   const items = document.querySelectorAll(".each-item");
-items.forEach((item) => {
-  item.addEventListener("click", () => {
-    const title = item.getAttribute("data-title");
-    const price = item.getAttribute("data-price");
-    const image = item.getAttribute("data-image");
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      const title = item.getAttribute("data-title");
+      const price = item.getAttribute("data-price");
+      const image = item.getAttribute("data-image");
 
-    const queryParams = new URLSearchParams({
-      title: title,
-      price: price,
-      image: image,
+      const queryParams = new URLSearchParams({
+        title: title,
+        price: price,
+        image: image,
+      });
+
+      window.location.href = `product.html?${queryParams.toString()}`;
     });
-
-    window.location.href = `product.html?${queryParams.toString()}`;
   });
-});
 }
 goToProductPage();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const formTitle = document.getElementById("form-title");
+  const loginForm = document.getElementById("login-form");
+  const loginButton = document.getElementById("login");
+  const forgotPassword = document.getElementById("forgot-password");
+  const switchAccount = document.getElementById("switch-account");
+  const passwordContainer = document.getElementById("password-container");
+
+  let isLogin = true;
+
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password")
+      ? document.getElementById("password").value
+      : "";
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    let valid = true;
+
+    if (!emailPattern.test(email)) {
+      valid = false;
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Please enter a valid email address",
+      });
+    }
+
+    if (isLogin && password.length < 6) {
+      valid = false;
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Password must be at least 6 characters",
+      });
+    }
+
+    if (valid) {
+      event.target.submit();
+      window.location.href = "homepage.html";
+    }
+  });
+
+  function switchForm() {
+    isLogin = !isLogin;
+    if (isLogin) {
+      formTitle.textContent = "Login";
+      loginButton.textContent = "Login";
+      forgotPassword.style.display = "block";
+      switchAccount.innerHTML =
+        'Don\'t have an account? <a href="#" id="switch-to-signup">Sign Up</a>';
+      passwordContainer.style.display = "block";
+    } else {
+      formTitle.textContent = "Sign Up";
+      loginButton.textContent = "Sign Up";
+      forgotPassword.style.display = "none";
+      switchAccount.innerHTML =
+        'Already have an account? <a href="#" id="switch-to-signup">Login</a>';
+      passwordContainer.style.display = "block";
+    }
+    addSwitchLinkEventListener();
+  }
+
+  function addSwitchLinkEventListener() {
+    const switchLink = document.getElementById("switch-to-signup");
+    switchLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      switchForm();
+    });
+  }
+
+  addSwitchLinkEventListener();
+});
+
+const signOut = document.getElementById("sign_out");
+function signOutUser() {
+  localStorage.removeItem("cart");
+  window.location.href = "index.html";
+}

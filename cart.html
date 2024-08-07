@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/cart.css" />
   </head>
   <body>
-    <div class="discount">
+    <div id="discount" class="discount">
       <p>Get 25% OFF on your first order. Order Now</p>
     </div>
     <header>
@@ -40,7 +40,7 @@
       </div>
       <div class="split">
         <button id="carting">
-          <a href="cart.html">
+          <a href="#discount">
             <img src="images/Cart.svg" alt="" />
             <span id="cart-count2">0</span>
           </a>
@@ -63,7 +63,7 @@
           <li class="nav"><a href="#">Contact</a></li>
         </ul>
         <div class="br">
-          <h4><a href="cart.html">Cart</a></h4>
+          <h4><a href="#discount">Cart</a></h4>
         </div>
         <div class="br">
           <h4 class="nav"><a href="#">Profile</a></h4>
@@ -109,7 +109,7 @@
           <h1>Luxe Aisle</h1>
         </div>
         <h4>
-          BioCode is a YouTube channel for <br />
+          DevCut is a YouTube channel for <br />
           practical project-based learning.
         </h4>
         <div class="icons">
@@ -122,19 +122,19 @@
         <h4>Support</h4>
         <h3>FAQ</h3>
         <h3>Terms of use</h3>
-        <h3>Privacy Policy</h3>
+        <h3 onclick="signOutUser()" id="sign_out><a href="#">Sign out</a></h3>
       </div>
       <div class="column2">
-        <h4>Company</h4>
+        <h4>Comapany</h4>
         <h3>About us</h3>
         <h3>Contact</h3>
         <h3>Careers</h3>
       </div>
       <div class="column2">
         <h4>Shop</h4>
-        <h3>My Account</h3>
-        <h3>Checkout</h3>
-        <h3>Cart</h3>
+        <h3><a href="collection.html">Collection</a></h3>
+        <h3><a href="#">My Account</a></h3>
+        <h3><a href="cart.html">Cart</a></h3>
       </div>
       <div class="column3">
         <h2>Accepted Payments</h2>

@@ -6,9 +6,10 @@
     <link rel="icon" href="images/Logomark.svg" />
     <title>L U X E</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
   </head>
   <body>
-    <div class="discount">
+    <div id="discount" class="discount">
       <p>Get 25% OFF on your first order. Order Now</p>
     </div>
     <header>
@@ -18,8 +19,8 @@
       </div>
       <div class="links">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="collection.html">Collection</a></li>
+          <li><a href="#discount">Home</a></li>
+          <li><a href="#discount">Collection</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -39,7 +40,7 @@
       </div>
       <div class="split">
         <button id="carting">
-          <a href="cart.html">
+          <a href="#discount">
             <img src="images/Cart.svg" alt="" />
             <span id="cart-count2">0</span>
           </a>
@@ -56,13 +57,13 @@
           <h1>L U X E</h1>
         </div>
         <ul class="Links2">
-          <li class="nav"><a href="index.html">Home</a></li>
-          <li class="nav"><a href="collection.html">Collection</a></li>
+          <li class="nav"><a href="#discount">Home</a></li>
+          <li class="nav"><a href="#discount">Collection</a></li>
           <li class="nav"><a href="#">About</a></li>
           <li class="nav"><a href="#">Contact</a></li>
         </ul>
         <div class="br">
-          <h4><a href="cart.html">Cart</a></h4>
+          <h4><a href="#discount">Cart</a></h4>
         </div>
         <div class="br">
           <h4 class="nav"><a href="#">Profile</a></h4>
@@ -70,144 +71,31 @@
         </div>
       </div>
     </header>
-    <section class="first-body-homepage">
-      <div class="first-body-left">
-        <h1>Fresh Arrivals Online</h1>
-        <p>Discover Our Newest Collection Today.</p>
+    <section class="first-body-cart">
+      <h1 id="form-title">Login</h1>
+      <div class="signin">
         <button>
-          <a href="collection.html"
-            >View Collection
-            <img src="images/Arrow Right.svg" alt="" />
-          </a>
+          <img src="images/Google.svg" alt="" />
+          <span>Continue with Google</span>
         </button>
-      </div>
-      <div class="first-body-right">
-        <div class="Ellipse"></div>
-        <img src="images/Hero Image.svg" alt="" />
-      </div>
-    </section>
-    <section class="second-body-homepage">
-      <div class="each-ab">
-        <img src="images/Free-shipping.svg" alt="" />
-        <h3>Free Shipping</h3>
-        <p>
-          Upgrade your style today and get FREE shipping on all orders! Don't
-          miss out.
-        </p>
-      </div>
-      <div class="each-ab">
-        <img src="images/Satisfaction Guarantee.svg" alt="" />
-        <h3>Satisfaction Guarantee</h3>
-        <p>
-          Shop confidently with our Satisfaction Guarantee: Love it or get a
-          refund.
-        </p>
-      </div>
-      <div class="each-ab">
-        <img src="images/Secure-Payment.svg" alt="" />
-        <h3>Secure Payment</h3>
-        <p>Your security is our priority. Your payments are secure with us.</p>
-      </div>
-    </section>
-    <div class="shop-now">
-      <h3>SHOP NOW</h3>
-      <h1>Best Selling</h1>
-    </div>
-    <section class="third-body-homepage" id="similar-products">
-      </section>
-    <section class="fourth-body-homepage">
-      <div class="fourth-body-left">
-        <h1>Browse Our Fashion Paradise!</h1>
-        <p>
-          Step into a world of style and explore our diverse collection of
-          clothing categories.
-        </p>
-        <a href="collection.html"
-          ><button>
-            Start Browsing
-            <img src="images/Arrow Right.svg" alt="" /></button
-        ></a>
-      </div>
-      <img src="images/Category Image.svg" alt="" />
-    </section>
-    <div class="money-update">
-      <button>Featured</button>
-      <button>Latest</button>
-    </div>
-    <section class="third-body-homepage">
-      <div
-        class="each-item"
-        id="item5"
-        data-title="Elegant Ebony Sweatshirts"
-        data-price="$35.00"
-        data-image="images/Elegant Ebony Sweatshirts.svg"
-      >
-        <img src="images/Elegant Ebony Sweatshirts.svg" alt="" />
-        <div class="details">
-          <h5>Elegant Sweatshirts</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$35.00</p>
-          </div>
+        <div class="or-line">
+          <div class="line"></div>
+          <span>or</span>
+          <div class="line"></div>
         </div>
-      </div>
-      <div
-        class="each-item"
-        id="item6"
-        data-title="Cozy Black"
-        data-price="$57.00"
-        data-image="images/Sleek and Cozy Black.svg"
-      >
-        <img src="images/Sleek and Cozy Black.svg" alt="" />
-        <div class="details">
-          <h5>Cozy Black</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$57.00</p>
+        <form class="form" id="login-form" action="afterpayment.html" method="POST">
+          <div>
+            <label for="Email">Email</label>
+            <input type="text" id="email" name="email" required />
           </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item7"
-        data-title="Raw Black Tees"
-        data-price="$19.00"
-        data-image="images/Raw Black Tees.svg"
-      >
-        <img src="images/Raw Black Tees.svg" alt="" />
-        <div class="details">
-          <h5>Raw Black Tees</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$19.00</p>
+          <div id="password-container">
+            <label for="Password">Password</label>
+            <input type="password" id="password" name="password" />
           </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item8"
-        data-title="MOCKUP Black"
-        data-price="$30.00"
-        data-image="images/Mockup Black.svg"
-      >
-        <img src="images/Mockup Black.svg" alt="" />
-        <div class="details">
-          <h5>MOCKUP Black</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$30.00</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="fifth-body-homepage">
-      <div class="fifth-body-left">
-        <h1>Join Our Newsletter</h1>
-        <p>We love to surprise our subscribers with occasional gifts.</p>
-      </div>
-      <div class="send-email">
-        <input type="text" placeholder="Your email address" />
-        <button>Subscribe</button>
+          <button id="login" type="submit">Login</button>
+        </form>
+        <p id="forgot-password">Forgot your password? <a href="#">Reset it</a></p>
+        <p id="switch-account">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
       </div>
     </section>
     <footer>
@@ -233,16 +121,16 @@
         <h3>Privacy Policy</h3>
       </div>
       <div class="column2">
-        <h4>Comapany</h4>
+        <h4>Company</h4>
         <h3>About us</h3>
         <h3>Contact</h3>
         <h3>Careers</h3>
       </div>
       <div class="column2">
         <h4>Shop</h4>
-        <h3><a href="collection.html">Collection</a></h3>
-        <h3><a href="#">My Account</a></h3>
-        <h3><a href="cart.html">Cart</a></h3>
+        <h3><a href="#discount">Collection</a></h3>
+        <h3><a href="#discount">My Account</a></h3>
+        <h3><a href="#discount">Cart</a></h3>
       </div>
       <div class="column3">
         <h2>Accepted Payments</h2>
@@ -258,5 +146,6 @@
       <p>&copy; 2024 BioCode. All rights reserved.</p>
     </div>
     <script src="app.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

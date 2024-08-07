@@ -6,6 +6,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 .first-body-cart {
   width: 100%;
   display: flex;
@@ -259,7 +262,7 @@ footer,
   text-align: center;
   margin-top: 20px;
 }
-.after-pay a{
+.after-pay a {
   width: 40%;
   text-decoration: none;
 }
@@ -281,6 +284,111 @@ footer,
   justify-content: center;
   align-items: center;
 }
+
+/* Signin.html */
+.signin {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+}
+.signin button {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  background-color: white;
+  border: 1px solid #b6b7bc;
+  border-radius: 5px;
+}
+.or-line {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #b6b7bc;
+}
+.or-line span {
+  font-family: "inter", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  color: #5c5f6a;
+  text-transform: uppercase;
+}
+.form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 23px;
+}
+.form div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
+}
+.form div label {
+  font-family: "inter", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  color: #474b57;
+}
+.form input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #b6b7bc;
+  border-radius: 5px;
+  font-family: "inter", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+}
+#login {
+  width: 100%;
+  max-width: 400px;
+  background-color: #0e1422;
+  border: none;
+  border-radius: 5px;
+  font-family: "inter", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+.signin p {
+  font-family: "inter", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  color: #5c5f6a;
+}
+.signin p a {
+  text-decoration: none;
+  color: #0e1422;
+}
 @media screen and (max-width: 1045px) {
   .cart {
     padding: 50px 20px 160px 20px;
@@ -289,13 +397,13 @@ footer,
   .first-body-cart h1 {
     padding: 30px 20px 30px 20px;
   }
-  .after-pay{
+  .after-pay {
     padding: 50px 20px 100px 20px;
   }
   .left-cart h1 {
     padding: 0;
   }
-  .after-pay a{
+  .after-pay a {
     width: 60%;
   }
 }
@@ -319,7 +427,7 @@ footer,
   .right-cart {
     width: 100%;
   }
-  .after-pay a{
+  .after-pay a {
     width: 80%;
   }
 }
@@ -327,14 +435,14 @@ footer,
   .content-name h1 {
     width: fit-content;
   }
-  .first-body-cart h1{
+  .first-body-cart h1 {
     padding: 20px 10px 20px 10px;
   }
   .cart {
     padding-left: 10px;
     padding-right: 10px;
   }
-  .after-pay{
+  .after-pay {
     padding: 50px 10px 100px 10px;
   }
   .thumbnails {
@@ -361,35 +469,55 @@ footer,
   .cart {
     padding-top: 20px;
   }
-  .after-pay h2{
+  .after-pay h2 {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 450px) {
+  .signin{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .first-body-cart h1 {
     font-size: 27px;
   }
   .quantity h1 {
     font-size: 17px;
   }
-  .after-pay a{
+  .after-pay a {
     width: 90%;
+  }
+  .signin button {
+    max-width: 100%;
+  }
+  .or-line {
+    max-width: 100%;
+  }
+  form{
+    max-width: 100%;
+  }
+  form div{
+    max-width: 100%;
+  }
+  #login{
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 411px) {
-  .after-pay h2{
+  .after-pay h2 {
     font-size: 28px;
   }
-  .after-pay p{
+  .after-pay p {
     font-size: 13px;
   }
 }
 @media screen and (max-width: 337px) {
-  .after-pay h2{
+  .after-pay h2 {
     font-size: 22px;
   }
-  .after-pay p{
+  .after-pay p {
     font-size: 11.5px;
   }
 }
+
 

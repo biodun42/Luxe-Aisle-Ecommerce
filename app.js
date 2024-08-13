@@ -32,10 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loadItems() {
   let divOne = document.getElementById("third-body-homepage");
+  
   fetch("./product.json")
     .then((response) => response.json())
     .then((data) => {
-      data.forEach((item, index) => {
+      data.sort(() => Math.random() - 0.5);
+
+      data.forEach((item) => {
         divOne.innerHTML += `
           <div class="each-item" 
           id="${item.id}" 
@@ -60,6 +63,7 @@ function loadItems() {
 }
 
 loadItems();
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -444,7 +448,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addSwitchLinkEventListener() {
-    const switchLink = document.getElementById("switch-to-signup") || document.getElementById("switch-to-login");
+    const switchLink =
+      document.getElementById("switch-to-signup") ||
+      document.getElementById("switch-to-login");
     switchLink.addEventListener("click", function (event) {
       event.preventDefault();
       switchForm();
@@ -459,3 +465,28 @@ function signOutUser() {
   localStorage.removeItem("cart");
   window.location.href = "index.html";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const observerOptions = {
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const fadeElementsOne = document.querySelectorAll(".fade1");
+  fadeElementsOne.forEach((element) => {
+    observer.observe(element);
+  });
+
+  const fadeElementsTwo = document.querySelectorAll(".fade2");
+  fadeElementsTwo.forEach((element) => {
+    observer.observe(element);
+  });
+});

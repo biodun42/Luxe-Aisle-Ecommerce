@@ -220,35 +220,44 @@ header {
 /* Homepage */
 .first-body-homepage {
   width: 100%;
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 60px;
   background-color: #f6f6f6;
   margin-bottom: 2rem;
+  background-image: url("../images/full-shot-contemplative-man-seaside.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .first-body-left {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 0 60px;
   gap: 15px;
 }
 .first-body-left h1 {
-  font-family: "Inter", sans-serif;
-  color: #202533;
-  font-size: 32px;
+  font-family: "Manrope", sans-serif;
+  color: #f6f6f6;
+  font-size: 62px;
   font-style: normal;
   font-weight: 600;
 }
 .first-body-left p {
   font-family: "Inter", sans-serif;
-  color: #474b57;
-  font-size: 15px;
+  color: #e9e9eb;
+  font-size: 17px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
+  width: 100%;
+  max-width: 500px;
 }
 .first-body-left button {
-  margin-top: 48px;
+  margin-top: 28px;
   width: fit-content;
   padding: 12px 24px;
   background-color: #0e1422;
@@ -269,19 +278,21 @@ header {
   justify-content: center;
   gap: 6px;
 }
-.first-body-right{
+.first-body-right {
   width: 100%;
   display: flex;
   justify-content: end;
   align-items: end;
+}
+#businessman {
+  display: none;
 }
 .first-body-right img {
   width: 100%;
   max-width: 300px;
   height: 100%;
   max-height: 500px;
-  margin-bottom: -40px;
-  }
+}
 .second-body-homepage {
   width: 100%;
   display: flex;
@@ -645,10 +656,7 @@ footer {
     padding-left: 20px;
   }
   header {
-    padding: 19px 20px;
-  }
-  .first-body-homepage {
-    padding: 40px 20px;
+    padding: 8px 20px;
   }
   .second-body-homepage {
     padding: 80px 20px;
@@ -671,6 +679,16 @@ footer {
   }
   .each-item h5 {
     font-size: 14px;
+  }
+  .first-body-left {
+    padding: 0 20px;
+  }
+  .first-body-left h1 {
+    font-size: 40px;
+  }
+  .first-body-left p {
+    font-size: 16px;
+    max-width: 400px;
   }
 }
 @media screen and (max-width: 962px) {
@@ -706,13 +724,18 @@ footer {
     font-size: 16px;
   }
 }
-@media screen and (max-width: 650px) {
-  .first-body-homepage {
-    padding: 20px 10px;
+@media screen and (max-width: 739px) {
+  .first-body-left h1{
+    font-size: 32px;
   }
-  .first-body-left button{
+  .first-body-left p {
+    font-size: 14px;
+    max-width: 350px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .first-body-left button {
     margin-top: 0;
-
   }
   .second-body-homepage {
     padding: 30px 10px;
@@ -748,14 +771,37 @@ footer {
   }
 
   .first-body-homepage {
+    height: auto;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    background-image: none;
+  }
+  #businessman{
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .first-body-left {
     text-align: center;
     justify-content: center;
+    gap: 8px;
+  }
+  .hide-discount{
+    display: none;
+  }
+  .first-body-left h1{
+    color: #0e1422;
+    text-align: center;
+    width: 100%;
+  }
+  .first-body-left p {
+    color: #5c5f6a;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
   }
   .fifth-body-left h1 {
     text-align: center;
@@ -771,15 +817,14 @@ footer {
     align-items: center;
     justify-content: center;
   }
-  .first-body-right{
+  .first-body-right {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .first-body-right img{
+  .first-body-right img {
     margin-bottom: 0;
-
   }
   .fourth-body-homepage {
     flex-direction: column-reverse;
@@ -868,10 +913,10 @@ footer {
 }
 @media screen and (max-width: 335px) {
   .first-body-left h1 {
-    font-size: 24px;
+    font-size: 28px;
   }
   .first-body-left p {
-    font-size: 14px;
+    font-size: 12px;
   }
   .send-email {
     width: 100%;

@@ -789,9 +789,6 @@ footer {
     justify-content: center;
     gap: 8px;
   }
-  .hide-discount{
-    display: none;
-  }
   .first-body-left h1{
     color: #0e1422;
     text-align: center;

@@ -220,7 +220,7 @@ header {
 /* Homepage */
 .first-body-homepage {
   width: 100%;
-  height: calc(100vh - 100px);
+  height: 672px;
   display: flex;
   justify-content: space-between;
   align-items: center;

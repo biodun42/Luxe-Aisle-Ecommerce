@@ -86,6 +86,9 @@ form input{
     gap: 20px;
     padding: 50px 20px 100px 20px;
   }
+  .right-cart{
+    width: 100%;
+  }
 }
 @media screen and (max-width: 650px){
   .checkout-body{

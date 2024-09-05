@@ -9,144 +9,146 @@
     <link rel="stylesheet" href="css/cart.css" />
   </head>
   <body>
-    <div id="discount" class="discount">
-      <p>Get 25% OFF on your first order. Order Now</p>
-    </div>
-    <header>
-      <div class="logo">
-        <img src="images/Logomark.svg" alt="" />
-        <h1>L U X E</h1>
+    <body>
+      <div id="discount" class="discount">
+        <p>Get 25% OFF on your first order. Order Now</p>
       </div>
-      <div class="links">
-        <ul>
-          <li class="na"><a href="#">Home</a></li>
-          <li class="na"><a href="#">Collection</a></li>
-          <li class="na"><a href="#">About</a></li>
-          <li class="na"><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="right-header">
-        <img src="images/User.svg" alt="" />
-      </div>
-      <div class="split">
-        <div class="hamburger-menu">
-          <div class="hambar bar1"></div>
-          <div class="hambar bar2"></div>
-          <div class="hambar bar3"></div>
-        </div>
-      </div>
-      <div class="off-screen-menu">
+      <header>
         <div class="logo">
           <img src="images/Logomark.svg" alt="" />
           <h1>L U X E</h1>
         </div>
-        <ul class="Links2">
-          <li class="nav na"><a href="#">Home</a></li>
-          <li class="nav na"><a href="#">Collection</a></li>
-          <li class="nav na"><a href="#">About</a></li>
-          <li class="nav na"><a href="#">Contact</a></li>
-        </ul>
-        <div class="br nav na">
-          <h4><a href="#">Cart</a></h4>
+        <div class="links">
+          <ul>
+            <li class="na"><a href="#">Home</a></li>
+            <li class="na"><a href="#">Collection</a></li>
+            <li class="na"><a href="#">About</a></li>
+            <li class="na"><a href="#">Contact</a></li>
+          </ul>
         </div>
-        <div class="br nav na">
-          <h4 class="nav"><a href="#">Profile</a></h4>
-          <img class="nav" src="images/User.svg" alt="" />
+        <div class="right-header na">
+          <img src="images/User.svg" alt="" />
         </div>
-      </div>
-    </header>
-    <section class="first-body-cart">
-      <h1 id="form-title" class="fade2">Login</h1>
-      <div class="signin fade1">
-        <button>
-          <img src="images/Google.svg" alt="" />
-          <span>Continue with Google</span>
-        </button>
-        <div class="or-line">
-          <div class="line"></div>
-          <span>or</span>
-          <div class="line"></div>
+        <div class="split">
+          <div class="hamburger-menu">
+            <div class="hambar bar1"></div>
+            <div class="hambar bar2"></div>
+            <div class="hambar bar3"></div>
+          </div>
         </div>
-        <form
-          class="form"
-          id="login-form"
-          action="https://formspree.io/f/xrbzkbgz"
-          method="POST"
-        >
+        <div class="off-screen-menu">
+          <div class="logo">
+            <img src="images/Logomark.svg" alt="" />
+            <h1>L U X E</h1>
+          </div>
+          <ul class="Links2">
+            <li class="nav na"><a href="#">Home</a></li>
+            <li class="nav na"><a href="#">Collection</a></li>
+            <li class="nav na"><a href="#">About</a></li>
+            <li class="nav na"><a href="#">Contact</a></li>
+          </ul>
+          <div class="br nav na">
+            <h4><a href="#">Cart</a></h4>
+          </div>
+          <div class="br nav na">
+            <h4 class="nav"><a href="#">Profile</a></h4>
+            <img class="nav" src="images/User.svg" alt="" />
+          </div>
+        </div>
+      </header>
+      <section class="first-body-cart">
+        <h1 id="form-title" class="fade2">Login</h1>
+        <div class="signin fade1">
+          <button>
+            <img src="images/Google.svg" alt="" />
+            <span>Continue with Google</span>
+          </button>
+          <div class="or-line">
+            <div class="line"></div>
+            <span>or</span>
+            <div class="line"></div>
+          </div>
+          <form
+            class="form"
+            id="login-form"
+            action="https://formspree.io/f/xrbzkbgz"
+            method="POST"
+          >
+            <div>
+              <label for="Email">Email</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                required
+                autocomplete="on"
+              />
+            </div>
+            <div id="password-container">
+              <label for="Password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="on"
+              />
+            </div>
+            <input type="submit" value="Login" id="button" />
+          </form>
+          <p id="forgot-password">
+            Forgot your password? <a href="#">Reset it</a>
+          </p>
+          <p>Don't have an account? <a href="index.html">Sign Up</a></p>
+        </div>
+      </section>
+      <footer class="fade2">
+        <div class="column1">
+          <div class="bottom-logo">
+            <img src="images/Logomark.svg" alt="" />
+            <h1>Luxe Aisle</h1>
+          </div>
+          <h4>
+            DevCut is a YouTube channel for <br />
+            practical project-based learning.
+          </h4>
+          <div class="icons">
+            <img src="images/Github.svg" alt="" />
+            <img src="images/Vector.svg" alt="" />
+            <img src="images/Youtube.svg" alt="" />
+          </div>
+        </div>
+        <div class="column2">
+          <h4>Support</h4>
+          <h3>FAQ</h3>
+          <h3>Terms of use</h3>
+          <h3>Privacy Policy</h3>
+        </div>
+        <div class="column2">
+          <h4>Company</h4>
+          <h3>About us</h3>
+          <h3>Contact</h3>
+          <h3>Careers</h3>
+        </div>
+        <div class="column2">
+          <h4>Shop</h4>
+          <h3><a href="#discount">Collection</a></h3>
+          <h3><a href="#discount">My Account</a></h3>
+          <h3><a href="#discount">Cart</a></h3>
+        </div>
+        <div class="column3">
+          <h2>Accepted Payments</h2>
           <div>
-            <label for="Email">Email</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              required
-              autocomplete="on"
-            />
+            <img src="images/Mastercard.svg" alt="" />
+            <img src="images/Amex.svg" alt="" />
+            <img src="images/Visa.svg" alt="" />
           </div>
-          <div id="password-container">
-            <label for="Password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              autocomplete="on"
-            />
-          </div>
-          <input type="submit" value="Login" id="button" />
-        </form>
-        <p id="forgot-password">
-          Forgot your password? <a href="#">Reset it</a>
-        </p>
-        <p>Don't have an account? <a href="index.html">Sign Up</a></p>
-      </div>
-    </section>
-    <footer class="fade2">
-      <div class="column1">
-        <div class="bottom-logo">
-          <img src="images/Logomark.svg" alt="" />
-          <h1>Luxe Aisle</h1>
         </div>
-        <h4>
-          DevCut is a YouTube channel for <br />
-          practical project-based learning.
-        </h4>
-        <div class="icons">
-          <img src="images/Github.svg" alt="" />
-          <img src="images/Vector.svg" alt="" />
-          <img src="images/Youtube.svg" alt="" />
-        </div>
+      </footer>
+      <div class="copy-right">
+        <hr />
+        <p>&copy; 2024 BioCode. All rights reserved.</p>
       </div>
-      <div class="column2">
-        <h4>Support</h4>
-        <h3>FAQ</h3>
-        <h3>Terms of use</h3>
-        <h3>Privacy Policy</h3>
-      </div>
-      <div class="column2">
-        <h4>Company</h4>
-        <h3>About us</h3>
-        <h3>Contact</h3>
-        <h3>Careers</h3>
-      </div>
-      <div class="column2">
-        <h4>Shop</h4>
-        <h3><a href="#discount">Collection</a></h3>
-        <h3><a href="#discount">My Account</a></h3>
-        <h3><a href="#discount">Cart</a></h3>
-      </div>
-      <div class="column3">
-        <h2>Accepted Payments</h2>
-        <div>
-          <img src="images/Mastercard.svg" alt="" />
-          <img src="images/Amex.svg" alt="" />
-          <img src="images/Visa.svg" alt="" />
-        </div>
-      </div>
-    </footer>
-    <div class="copy-right">
-      <hr />
-      <p>&copy; 2024 BioCode. All rights reserved.</p>
-    </div>
+
     <script src="app.js"></script>
     <script src="script.js"></script>
     <script type="module">
@@ -180,11 +182,14 @@
         try {
           button.value = "Logging in...";
 
+          // Attempt to sign in the user
           const userCredential = await signInWithEmailAndPassword(
             auth,
             email,
             password
           );
+
+          // Successful login
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -202,6 +207,37 @@
           });
         } catch (error) {
           console.error(error);
+
+          // Handling specific Firebase Auth errors
+          if (error.code === "auth/user-not-found") {
+            // User does not exist
+            Swal.fire({
+              icon: "error",
+              title: "User not found",
+              text: "No account found with this email.",
+            });
+          } else if (error.code === "auth/wrong-password") {
+            // Incorrect password
+            Swal.fire({
+              icon: "error",
+              title: "Incorrect password",
+              text: "The password you entered is incorrect.",
+            });
+          } else if (error.code === "auth/invalid-email") {
+            // Invalid email format
+            Swal.fire({
+              icon: "error",
+              title: "Invalid email",
+              text: "Please provide a valid email and password.",
+            });
+          } else {
+            // General error fallback
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Something went wrong. Please try again.",
+            });
+          }
         } finally {
           button.value = "Login";
         }

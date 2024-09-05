@@ -26,7 +26,7 @@
           <li class="na"><a href="#">Contact</a></li>
         </ul>
       </div>
-      <div class="right-header">
+      <div class="right-header na">
         <img src="images/User.svg" alt="" />
       </div>
       <div class="split">
@@ -156,8 +156,7 @@
       import {
         createUserWithEmailAndPassword,
         getAuth,
-        onAuthStateChanged,
-        signInWithEmailAndPassword,
+        fetchSignInMethodsForEmail,
       } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
       import {
@@ -193,7 +192,7 @@
         if (password !== confirmPassword) {
           Swal.fire({
             position: "top-end",
-            icon: "success",
+            icon: "error",
             title: "Passwords do not match",
             showConfirmButton: false,
             timer: 1500,
@@ -203,17 +202,32 @@
 
         try {
           submitButton.value = "Creating Account...";
+
+          // Check if email already exists
+          const signInMethods = await fetchSignInMethodsForEmail(auth, email);
+          if (signInMethods.length > 0) {
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Email is already in use",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            return;
+          }
+
           const userCredential = await createUserWithEmailAndPassword(
             auth,
             email,
             password
           );
 
-          const docRef = await addDoc(usersCollection, {
+          await addDoc(usersCollection, {
             name,
             email,
             uid: userCredential.user.uid,
           });
+
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -222,19 +236,14 @@
             timer: 1500,
           }).then(() => {
             window.location.href = "homepage.html";
-            localStorage.removeItem("cart");
-            const cartCount = document.getElementById("cart-count");
-            const cartCountMobile = document.getElementById("cart-count2");
-
-            cartCount.textContent = 0;
-            cartCountMobile.textContent = 0;
           });
         } catch (error) {
           console.error(error);
+
           Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "An error occurred",
+            title: "Error: " + error.message,
             showConfirmButton: false,
             timer: 1500,
           });
@@ -255,42 +264,6 @@
           });
         });
       });
-
-      // onAuthStateChanged(auth, (user) => {
-      //   if (user) {
-      //     const Toast = Swal.mixin({
-      //       toast: true,
-      //       position: "top-end",
-      //       showConfirmButton: false,
-      //       timer: 3000,
-      //       timerProgressBar: true,
-      //       didOpen: (toast) => {
-      //         toast.onmouseenter = Swal.stopTimer;
-      //         toast.onmouseleave = Swal.resumeTimer;
-      //       },
-      //     });
-      //     Toast.fire({
-      //       icon: "success",
-      //       title: "Signed in successfully",
-      //     });
-      //   } else {
-      //     const Toast = Swal.mixin({
-      //       toast: true,
-      //       position: "top-end",
-      //       showConfirmButton: false,
-      //       timer: 3000,
-      //       timerProgressBar: true,
-      //       didOpen: (toast) => {
-      //         toast.onmouseenter = Swal.stopTimer;
-      //         toast.onmouseleave = Swal.resumeTimer;
-      //       },
-      //     });
-      //     Toast.fire({
-      //       icon: "error",
-      //       title: "Signed out successfully",
-      //     });
-      //   }
-      // });
     </script>
   </body>
 </html>

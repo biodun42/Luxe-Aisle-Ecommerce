@@ -19,10 +19,10 @@
       </div>
       <div class="links">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Collection</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="na"><a href="#">Home</a></li>
+          <li class="na"><a href="#">Collection</a></li>
+          <li class="na"><a href="#">About</a></li>
+          <li class="na"><a href="#">Contact</a></li>
         </ul>
       </div>
       <div class="right-header">
@@ -41,12 +41,15 @@
           <h1>L U X E</h1>
         </div>
         <ul class="Links2">
-          <li class="nav"><a href="#">Home</a></li>
-          <li class="nav"><a href="#">Collection</a></li>
-          <li class="nav"><a href="#">About</a></li>
-          <li class="nav"><a href="#">Contact</a></li>
+          <li class="nav na"><a href="#">Home</a></li>
+          <li class="nav na"><a href="#">Collection</a></li>
+          <li class="nav na"><a href="#">About</a></li>
+          <li class="nav na"><a href="#">Contact</a></li>
         </ul>
-        <div class="br">
+        <div class="br nav na">
+          <h4><a href="#">Cart</a></h4>
+        </div>
+        <div class="br nav na">
           <h4 class="nav"><a href="#">Profile</a></h4>
           <img class="nav" src="images/User.svg" alt="" />
         </div>
@@ -202,6 +205,19 @@
         } finally {
           button.value = "Login";
         }
+      });
+
+      const na = document.querySelectorAll(".na");
+      na.forEach((element) => {
+        element.addEventListener("click", () => {
+          Swal.fire({
+            position: "top-end",
+            icon: "info",
+            title: "Sign in to access this feature",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
       });
     </script>
   </body>

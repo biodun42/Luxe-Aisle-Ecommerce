@@ -320,7 +320,7 @@ header {
   transform: translateY(20px);
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
-.fade2.visible{
+.fade2.visible {
   opacity: 1;
   transform: translateY(0);
 }

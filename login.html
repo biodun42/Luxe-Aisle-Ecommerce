@@ -58,7 +58,7 @@
     <section class="first-body-cart">
       <h1 id="form-title" class="fade2">Login</h1>
       <div class="signin fade1">
-        <button>
+        <button id="google-btn">
           <img src="images/Google.svg" alt="" />
           <span>Continue with Google</span>
         </button>
@@ -67,14 +67,9 @@
           <span>or</span>
           <div class="line"></div>
         </div>
-        <form
-          class="form"
-          id="login-form"
-          action="https://formspree.io/f/xrbzkbgz"
-          method="POST"
-        >
+        <form class="form" id="login-form">
           <div>
-            <label for="Email">Email</label>
+            <label for="email">Email</label>
             <input
               type="text"
               id="email"
@@ -84,11 +79,12 @@
             />
           </div>
           <div id="password-container">
-            <label for="Password">Password</label>
+            <label for="password">Password</label>
             <input
               type="password"
               id="password"
               name="password"
+              required
               autocomplete="on"
             />
           </div>
@@ -155,6 +151,8 @@
         signInWithEmailAndPassword,
         getAuth,
         onAuthStateChanged,
+        GoogleAuthProvider,
+        signInWithPopup,
       } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
       const firebaseConfig = {
@@ -173,18 +171,33 @@
       loginForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const target = e.target;
-        const email = target.email.value;
-        const password = target.password.value;
+        const email = target.email.value.trim();
+        const password = target.password.value.trim();
         const button = target.button;
+
+        // Validate form inputs
+        if (!email || !password) {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Please provide a valid email and password.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          return;
+        }
 
         try {
           button.value = "Logging in...";
 
+          // Attempt to sign in with email and password
           const userCredential = await signInWithEmailAndPassword(
             auth,
             email,
             password
           );
+
+          // Show success message on successful login
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -197,11 +210,17 @@
             const cartCount = document.getElementById("cart-count");
             const cartCountMobile = document.getElementById("cart-count2");
 
-            cartCount.textContent = 0;
-            cartCountMobile.textContent = 0;
+            if (cartCount) cartCount.textContent = 0;
+            if (cartCountMobile) cartCountMobile.textContent = 0;
           });
         } catch (error) {
-          console.error(error);
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "" + error.message,
+            showConfirmButton: false,
+            timer: 2500,
+          });
         } finally {
           button.value = "Login";
         }
@@ -218,6 +237,58 @@
             timer: 1500,
           });
         });
+      });
+
+      const googleButton = document.getElementById("google-btn");
+      googleButton.addEventListener("click", async () => {
+        const provider = new GoogleAuthProvider();
+
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `Welcome, ${user.displayName}`,
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            window.location.href = "homepage.html";
+            localStorage.removeItem("cart");
+            const cartCount = document.getElementById("cart-count");
+            const cartCountMobile = document.getElementById("cart-count2");
+
+            if (cartCount) cartCount.textContent = 0;
+            if (cartCountMobile) cartCountMobile.textContent = 0;
+          });
+        } catch (error) {
+          // Handle errors
+          let errorMessage = "An error occurred during Google login.";
+
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "" + error.message,
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        }
+      });
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "info",
+            title: "User is logged in",
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            window.location.href = "homepage.html";
+          });
+        } else {
+          console.log("User is logged out");
+        }
       });
     </script>
   </body>

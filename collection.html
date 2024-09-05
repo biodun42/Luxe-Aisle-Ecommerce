@@ -60,6 +60,7 @@
           <li class="nav"><a href="#discount">Collection</a></li>
           <li class="nav"><a href="#">About</a></li>
           <li class="nav"><a href="#">Contact</a></li>
+          <li id="sign-out" class="nav"><a href="#">Sign Out</a></li>
         </ul>
         <div class="br">
           <h4><a href="cart.html">Cart</a></h4>
@@ -103,7 +104,7 @@
         <h4>Support</h4>
         <h3>FAQ</h3>
         <h3>Terms of use</h3>
-        <h3 id="sign_out"><a href="#">Sign out</a></h3>
+        <h3 id="sign-out">Sign Out</h3>
       </div>
       <div class="column2">
         <h4>Comapany</h4>
@@ -130,6 +131,47 @@
       <hr />
       <p>&copy; 2024 BioCode. All rights reserved.</p>
     </div>
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
+    <script src="script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDYwTm46t-uDcw_721YefR81GNTVgQi_hI",
+        authDomain: "luxe-aisle-ecommerce.firebaseapp.com",
+        projectId: "luxe-aisle-ecommerce",
+        storageBucket: "luxe-aisle-ecommerce.appspot.com",
+        messagingSenderId: "102232001935",
+        appId: "1:102232001935:web:f92a186dd496d3b96e8ffa",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const signOutButtons = document.querySelectorAll("#sign-out");
+      signOutButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          signOut(auth);
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Signed out successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          })
+            .then(() => {
+              window.location.href = "login.html";
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        });
+      });
+    </script>
   </body>
 </html>

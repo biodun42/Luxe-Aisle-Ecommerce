@@ -59,7 +59,7 @@
     <section class="first-body-cart">
       <h1 id="form-title" class="fade2">Create Account</h1>
       <div class="signin fade1">
-        <button>
+        <button id="google-btn">
           <img src="images/Google.svg" alt="" />
           <span>Continue with Google</span>
         </button>
@@ -74,11 +74,11 @@
             <input type="text" id="name" name="name" required />
           </div>
           <div>
-            <label for="Email">Email *</label>
+            <label for="email">Email *</label>
             <input type="text" id="email" name="email" required />
           </div>
           <div>
-            <label for="Password">Password *</label>
+            <label for="password">Password *</label>
             <input
               type="password"
               id="password"
@@ -88,7 +88,7 @@
             />
           </div>
           <div id="password-container">
-            <label for="Password">Confirm Password *</label>
+            <label for="confirmPassword">Confirm Password *</label>
             <input
               type="password"
               id="confirmPassword"
@@ -149,6 +149,7 @@
       <hr />
       <p>&copy; 2024 BioCode. All rights reserved.</p>
     </div>
+
     <script src="app.js"></script>
     <script src="script.js"></script>
     <script type="module">
@@ -156,14 +157,19 @@
       import {
         createUserWithEmailAndPassword,
         getAuth,
-        onAuthStateChanged,
-        signInWithEmailAndPassword,
+        GoogleAuthProvider,
+        signInWithPopup,
+        EmailAuthProvider,
+        linkWithCredential,
       } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
       import {
         getFirestore,
         collection,
         addDoc,
+        where,
+        query,
+        getDocs,
       } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
       const firebaseConfig = {
@@ -180,20 +186,21 @@
       const db = getFirestore(app);
       const usersCollection = collection(db, "users");
 
+      // Sign-up Form Submit Event
       const form = document.getElementById("signup-form");
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const target = e.target;
-        const name = target.name.value;
-        const email = target.email.value;
-        const password = target.password.value;
-        const confirmPassword = target.confirmPassword.value;
-        const submitButton = target.button;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+        const submitButton = document.getElementById("button");
 
+        // Check if passwords match
         if (password !== confirmPassword) {
           Swal.fire({
             position: "top-end",
-            icon: "success",
+            icon: "error",
             title: "Passwords do not match",
             showConfirmButton: false,
             timer: 1500,
@@ -209,15 +216,17 @@
             password
           );
 
-          const docRef = await addDoc(usersCollection, {
+          await addDoc(usersCollection, {
             name,
             email,
             uid: userCredential.user.uid,
           });
+
+          const currentUser = await getloggedInUser(userCredential.user.uid);
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Account created successfully",
+            title: `Welcome, ${currentUser.name}`,
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
@@ -225,27 +234,26 @@
             localStorage.removeItem("cart");
             const cartCount = document.getElementById("cart-count");
             const cartCountMobile = document.getElementById("cart-count2");
-
-            cartCount.textContent = 0;
-            cartCountMobile.textContent = 0;
+            if (cartCount) cartCount.textContent = 0;
+            if (cartCountMobile) cartCountMobile.textContent = 0;
           });
         } catch (error) {
-          console.error(error);
           Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "An error occurred",
+            title: "" + error.message,
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2500,
           });
         } finally {
           submitButton.value = "Register Now";
         }
       });
 
-      const na = document.querySelectorAll(".na");
-      na.forEach((element) => {
-        element.addEventListener("click", () => {
+      // Block unauthorized access to certain features
+      const navLinks = document.querySelectorAll(".na");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
           Swal.fire({
             position: "top-end",
             icon: "info",
@@ -256,41 +264,86 @@
         });
       });
 
-      // onAuthStateChanged(auth, (user) => {
-      //   if (user) {
-      //     const Toast = Swal.mixin({
-      //       toast: true,
-      //       position: "top-end",
-      //       showConfirmButton: false,
-      //       timer: 3000,
-      //       timerProgressBar: true,
-      //       didOpen: (toast) => {
-      //         toast.onmouseenter = Swal.stopTimer;
-      //         toast.onmouseleave = Swal.resumeTimer;
-      //       },
-      //     });
-      //     Toast.fire({
-      //       icon: "success",
-      //       title: "Signed in successfully",
-      //     });
-      //   } else {
-      //     const Toast = Swal.mixin({
-      //       toast: true,
-      //       position: "top-end",
-      //       showConfirmButton: false,
-      //       timer: 3000,
-      //       timerProgressBar: true,
-      //       didOpen: (toast) => {
-      //         toast.onmouseenter = Swal.stopTimer;
-      //         toast.onmouseleave = Swal.resumeTimer;
-      //       },
-      //     });
-      //     Toast.fire({
-      //       icon: "error",
-      //       title: "Signed out successfully",
-      //     });
-      //   }
-      // });
+      // Google Sign-in
+      const googleButton = document.getElementById("google-btn");
+      googleButton.addEventListener("click", async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
+
+          // Ask user to create a new password
+          Swal.fire({
+            title: "Create a password for your account",
+            input: "password",
+            inputLabel: "Password",
+            inputPlaceholder: "Enter your password",
+            inputAttributes: {
+              maxlength: 20,
+              autocapitalize: "off",
+              autocorrect: "off",
+            },
+            showCancelButton: true,
+          }).then(async (result) => {
+            if (result.value) {
+              const password = result.value;
+
+              // Create EmailAuthProvider credential using Google email and new password
+              const credential = EmailAuthProvider.credential(
+                user.email,
+                password
+              );
+
+              // Link the Google account with Email/Password account
+              await linkWithCredential(user, credential);
+
+              // Add user data to Firestore
+              await addDoc(usersCollection, {
+                name: user.displayName,
+                email: user.email,
+                uid: user.uid,
+              });
+
+              // Show success message and redirect
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `Welcome, ${user.displayName}`,
+                showConfirmButton: false,
+                timer: 1500,
+              }).then(() => {
+                window.location.href = "homepage.html";
+              });
+            }
+          });
+        } catch (error) {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Google sign-in failed: " + error.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+
+      const getloggedInUser = async (id) => {
+        try {
+          const q = query(usersCollection, where("uid", "==", id));
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const user = querySnapshot.docs[0].data();
+            console.log("User found: ", user);
+            return user;
+          } else {
+            console.log("No user found");
+            return null;
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
     </script>
   </body>
 </html>

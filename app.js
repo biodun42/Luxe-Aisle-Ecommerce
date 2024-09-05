@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loadItems() {
   let divOne = document.getElementById("third-body-homepage");
-  
+
   fetch("./product.json")
     .then((response) => response.json())
     .then((data) => {
@@ -58,12 +58,10 @@ function loadItems() {
       });
 
       goToProductPage();
-    })
-    .catch((error) => console.log(error));
+    });
 }
 
 loadItems();
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -361,12 +359,6 @@ function goToProductPage() {
   });
 }
 goToProductPage();
-
-const signOut = document.getElementById("sign_out");
-function signOutUser() {
-  localStorage.removeItem("cart");
-  window.location.href = "homepage.html";
-}
 
 document.addEventListener("DOMContentLoaded", function () {
   const observerOptions = {

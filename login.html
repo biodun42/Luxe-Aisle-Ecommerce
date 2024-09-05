@@ -7,7 +7,6 @@
     <title>L U X E</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/cart.css" />
-    <link rel="stylesheet" href="css/signin.css" />
   </head>
   <body>
     <div id="discount" class="discount">
@@ -51,13 +50,13 @@
           <h4><a href="#">Cart</a></h4>
         </div>
         <div class="br nav na">
-          <h4><a href="#">Profile</a></h4>
-          <img src="images/User.svg" alt="" />
+          <h4 class="nav"><a href="#">Profile</a></h4>
+          <img class="nav" src="images/User.svg" alt="" />
         </div>
       </div>
     </header>
     <section class="first-body-cart">
-      <h1 id="form-title" class="fade2">Create Account</h1>
+      <h1 id="form-title" class="fade2">Login</h1>
       <div class="signin fade1">
         <button>
           <img src="images/Google.svg" alt="" />
@@ -68,38 +67,37 @@
           <span>or</span>
           <div class="line"></div>
         </div>
-        <form class="form" id="signup-form">
+        <form
+          class="form"
+          id="login-form"
+          action="https://formspree.io/f/xrbzkbgz"
+          method="POST"
+        >
           <div>
-            <label for="name">Name *</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div>
-            <label for="Email">Email *</label>
-            <input type="text" id="email" name="email" required />
-          </div>
-          <div>
-            <label for="Password">Password *</label>
+            <label for="Email">Email</label>
             <input
-              type="password"
-              id="password"
-              name="password"
+              type="text"
+              id="email"
+              name="email"
               required
               autocomplete="on"
             />
           </div>
           <div id="password-container">
-            <label for="Password">Confirm Password *</label>
+            <label for="Password">Password</label>
             <input
               type="password"
-              id="confirmPassword"
-              name="passwordTwo"
-              required
+              id="password"
+              name="password"
               autocomplete="on"
             />
           </div>
-          <input type="submit" value="Register Now" id="button" />
+          <input type="submit" value="Login" id="button" />
         </form>
-        <p>Already have an account? <a href="login.html">Sign In</a></p>
+        <p id="forgot-password">
+          Forgot your password? <a href="#">Reset it</a>
+        </p>
+        <p>Don't have an account? <a href="index.html">Sign Up</a></p>
       </div>
     </section>
     <footer class="fade2">
@@ -154,17 +152,10 @@
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
       import {
-        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
         getAuth,
         onAuthStateChanged,
-        signInWithEmailAndPassword,
       } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-
-      import {
-        getFirestore,
-        collection,
-        addDoc,
-      } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyDYwTm46t-uDcw_721YefR81GNTVgQi_hI",
@@ -177,47 +168,27 @@
 
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
-      const db = getFirestore(app);
-      const usersCollection = collection(db, "users");
 
-      const form = document.getElementById("signup-form");
-      form.addEventListener("submit", async (e) => {
+      const loginForm = document.getElementById("login-form");
+      loginForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const target = e.target;
-        const name = target.name.value;
         const email = target.email.value;
         const password = target.password.value;
-        const confirmPassword = target.confirmPassword.value;
-        const submitButton = target.button;
-
-        if (password !== confirmPassword) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Passwords do not match",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          return;
-        }
+        const button = target.button;
 
         try {
-          submitButton.value = "Creating Account...";
-          const userCredential = await createUserWithEmailAndPassword(
+          button.value = "Logging in...";
+
+          const userCredential = await signInWithEmailAndPassword(
             auth,
             email,
             password
           );
-
-          const docRef = await addDoc(usersCollection, {
-            name,
-            email,
-            uid: userCredential.user.uid,
-          });
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Account created successfully",
+            title: "Logged in successfully",
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
@@ -231,15 +202,8 @@
           });
         } catch (error) {
           console.error(error);
-          Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "An error occurred",
-            showConfirmButton: false,
-            timer: 1500,
-          });
         } finally {
-          submitButton.value = "Register Now";
+          button.value = "Login";
         }
       });
 
@@ -255,42 +219,6 @@
           });
         });
       });
-
-      // onAuthStateChanged(auth, (user) => {
-      //   if (user) {
-      //     const Toast = Swal.mixin({
-      //       toast: true,
-      //       position: "top-end",
-      //       showConfirmButton: false,
-      //       timer: 3000,
-      //       timerProgressBar: true,
-      //       didOpen: (toast) => {
-      //         toast.onmouseenter = Swal.stopTimer;
-      //         toast.onmouseleave = Swal.resumeTimer;
-      //       },
-      //     });
-      //     Toast.fire({
-      //       icon: "success",
-      //       title: "Signed in successfully",
-      //     });
-      //   } else {
-      //     const Toast = Swal.mixin({
-      //       toast: true,
-      //       position: "top-end",
-      //       showConfirmButton: false,
-      //       timer: 3000,
-      //       timerProgressBar: true,
-      //       didOpen: (toast) => {
-      //         toast.onmouseenter = Swal.stopTimer;
-      //         toast.onmouseleave = Swal.resumeTimer;
-      //       },
-      //     });
-      //     Toast.fire({
-      //       icon: "error",
-      //       title: "Signed out successfully",
-      //     });
-      //   }
-      // });
     </script>
   </body>
 </html>

@@ -6,6 +6,8 @@
     <link rel="icon" href="images/Logomark.svg" />
     <title>L U X E</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/signin.css" />
   </head>
   <body>
     <div id="discount" class="discount">
@@ -18,32 +20,16 @@
       </div>
       <div class="links">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="collection.html">Collection</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="na"><a href="#">Home</a></li>
+          <li class="na"><a href="#">Collection</a></li>
+          <li class="na"><a href="#">About</a></li>
+          <li class="na"><a href="#">Contact</a></li>
         </ul>
       </div>
       <div class="right-header">
-        <div class="top-search-bar">
-          <img src="images/Search.svg" alt="" />
-          <input type="text" placeholder="Search products" />
-        </div>
-        <button id="carting">
-          <a href="cart.html">
-            <img src="images/Cart.svg" alt="" />
-            <span id="cart-count">0</span>
-          </a>
-        </button>
         <img src="images/User.svg" alt="" />
       </div>
       <div class="split">
-        <button id="carting">
-          <a href="cart.html">
-            <img src="images/Cart.svg" alt="" />
-            <span id="cart-count2">0</span>
-          </a>
-        </button>
         <div class="hamburger-menu">
           <div class="hambar bar1"></div>
           <div class="hambar bar2"></div>
@@ -56,13 +42,13 @@
           <h1>L U X E</h1>
         </div>
         <ul class="Links2">
-          <li class="nav"><a href="index.html">Home</a></li>
-          <li class="nav"><a href="collection.html">Collection</a></li>
-          <li class="nav"><a href="#">About</a></li>
-          <li class="nav"><a href="#">Contact</a></li>
+          <li class="nav na"><a href="#">Home</a></li>
+          <li class="nav na"><a href="#">Collection</a></li>
+          <li class="nav na"><a href="#">About</a></li>
+          <li class="nav na"><a href="#">Contact</a></li>
         </ul>
         <div class="br">
-          <h4><a href="cart.html">Cart</a></h4>
+          <h4><a href="#discount">Cart</a></h4>
         </div>
         <div class="br">
           <h4 class="nav"><a href="#">Profile</a></h4>
@@ -70,145 +56,53 @@
         </div>
       </div>
     </header>
-    <section class="first-body-homepage fade1">
-      <div class="first-body-left">
-        <h1>Elevate Your Style</h1>
-        <p>
-          Step into the season with our handpicked collection of modern
-          essentials, designed to keep you looking sharp and feeling confident.
-        </p>
+    <section class="first-body-cart">
+      <h1 id="form-title" class="fade2">Create Account</h1>
+      <div class="signin fade1">
         <button>
-          <a href="collection.html"
-            >View Collection
-            <img src="images/Arrow Right.svg" alt="" />
-          </a>
+          <img src="images/Google.svg" alt="" />
+          <span>Continue with Google</span>
         </button>
-      </div>
-      <div class="first-body-right" id="businessman">
-        <img src="images/portrait-young-businessman.png" alt="" />
-      </div>
-    </section>
-    <section class="second-body-homepage fade2">
-      <div class="each-ab">
-        <img src="images/Free-shipping.svg" alt="" />
-        <h3>Free Shipping</h3>
-        <p>
-          Upgrade your style today and get FREE shipping on all orders! Don't
-          miss out.
+        <div class="or-line">
+          <div class="line"></div>
+          <span>or</span>
+          <div class="line"></div>
+        </div>
+        <form class="form" id="signup-form">
+          <div>
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div>
+            <label for="Email">Email *</label>
+            <input type="text" id="email" name="email" required />
+          </div>
+          <div>
+            <label for="Password">Password *</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              autocomplete="on"
+            />
+          </div>
+          <div id="password-container">
+            <label for="Password">Confirm Password *</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="passwordTwo"
+              required
+              autocomplete="on"
+            />
+          </div>
+          <input type="submit" value="Register Now" id="button" />
+        </form>
+        <p id="forgot-password">
+          Forgot your password? <a href="#">Reset it</a>
         </p>
-      </div>
-      <div class="each-ab">
-        <img src="images/Satisfaction Guarantee.svg" alt="" />
-        <h3>Satisfaction Guarantee</h3>
-        <p>
-          Shop confidently with our Satisfaction Guarantee: Love it or get a
-          refund.
-        </p>
-      </div>
-      <div class="each-ab">
-        <img src="images/Secure-Payment.svg" alt="" />
-        <h3>Secure Payment</h3>
-        <p>Your security is our priority. Your payments are secure with us.</p>
-      </div>
-    </section>
-    <div class="shop-now">
-      <h3>SHOP NOW</h3>
-      <h1>Best Selling</h1>
-    </div>
-    <section class="third-body-homepage fade2" id="similar-products"></section>
-    <section class="fourth-body-homepage fade2">
-      <div class="fourth-body-left">
-        <h1>Browse Our Fashion Paradise!</h1>
-        <p>
-          Step into a world of style and explore our diverse collection of
-          clothing categories.
-        </p>
-        <a href="collection.html"
-          ><button>
-            Start Browsing
-            <img src="images/Arrow Right.svg" alt="" /></button
-        ></a>
-      </div>
-      <img src="images/Category Image.svg" alt="" />
-    </section>
-    <div class="money-update">
-      <button>Featured</button>
-      <button>Latest</button>
-    </div>
-    <section class="third-body-homepage fade2">
-      <div
-        class="each-item"
-        id="item5"
-        data-title="Elegant Ebony Sweatshirts"
-        data-price="$35.00"
-        data-image="images/Elegant Ebony Sweatshirts.svg"
-      >
-        <img src="images/Elegant Ebony Sweatshirts.svg" alt="" />
-        <div class="details">
-          <h5>Elegant Sweatshirts</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$35.00</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item6"
-        data-title="Cozy Black"
-        data-price="$57.00"
-        data-image="images/Sleek and Cozy Black.svg"
-      >
-        <img src="images/Sleek and Cozy Black.svg" alt="" />
-        <div class="details">
-          <h5>Cozy Black</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$57.00</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item7"
-        data-title="Raw Black Tees"
-        data-price="$19.00"
-        data-image="images/Raw Black Tees.svg"
-      >
-        <img src="images/Raw Black Tees.svg" alt="" />
-        <div class="details">
-          <h5>Raw Black Tees</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$19.00</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="each-item"
-        id="item8"
-        data-title="MOCKUP Black"
-        data-price="$30.00"
-        data-image="images/Mockup Black.svg"
-      >
-        <img src="images/Mockup Black.svg" alt="" />
-        <div class="details">
-          <h5>MOCKUP Black</h5>
-          <div class="each-item-price">
-            <button>IN STOCK</button>
-            <p>$30.00</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="fifth-body-homepage fade2">
-      <div class="fifth-body-left">
-        <h1>Join Our Newsletter</h1>
-        <p>We love to surprise our subscribers with occasional gifts.</p>
-      </div>
-      <div class="send-email">
-        <input type="text" placeholder="Your email address" />
-        <button>Subscribe</button>
+        <p>Already have an account? <a href="signin.html">Sign In</a></p>
       </div>
     </section>
     <footer class="fade2">
@@ -231,19 +125,19 @@
         <h4>Support</h4>
         <h3>FAQ</h3>
         <h3>Terms of use</h3>
-        <h3 id="sign_out"><a href="#">Sign out</a></h3>
+        <h3>Privacy Policy</h3>
       </div>
       <div class="column2">
-        <h4>Comapany</h4>
+        <h4>Company</h4>
         <h3>About us</h3>
         <h3>Contact</h3>
         <h3>Careers</h3>
       </div>
       <div class="column2">
         <h4>Shop</h4>
-        <h3><a href="collection.html">Collection</a></h3>
-        <h3><a href="#">My Account</a></h3>
-        <h3><a href="cart.html">Cart</a></h3>
+        <h3><a href="#discount">Collection</a></h3>
+        <h3><a href="#discount">My Account</a></h3>
+        <h3><a href="#discount">Cart</a></h3>
       </div>
       <div class="column3">
         <h2>Accepted Payments</h2>
@@ -259,5 +153,134 @@
       <p>&copy; 2024 BioCode. All rights reserved.</p>
     </div>
     <script src="app.js"></script>
+    <script src="script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+      import {
+        createUserWithEmailAndPassword,
+        getAuth,
+        onAuthStateChanged,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDYwTm46t-uDcw_721YefR81GNTVgQi_hI",
+        authDomain: "luxe-aisle-ecommerce.firebaseapp.com",
+        projectId: "luxe-aisle-ecommerce",
+        storageBucket: "luxe-aisle-ecommerce.appspot.com",
+        messagingSenderId: "102232001935",
+        appId: "1:102232001935:web:f92a186dd496d3b96e8ffa",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      const usersCollection = collection(db, "users");
+
+      const form = document.getElementById("signup-form");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const target = e.target;
+        const name = target.name.value;
+        const email = target.email.value;
+        const password = target.password.value;
+        const confirmPassword = target.confirmPassword.value;
+        const submitButton = target.button;
+
+        if (password !== confirmPassword) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Passwords do not match",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          return;
+        }
+
+        try {
+          submitButton.value = "Creating Account...";
+          const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+          const docRef = await addDoc(usersCollection, {
+            name,
+            email,
+            uid: userCredential.user.uid,
+          });
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Account created successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            window.location.href = "homepage.html";
+            localStorage.removeItem("cart");
+            const cartCount = document.getElementById("cart-count");
+            const cartCountMobile = document.getElementById("cart-count2");
+
+            cartCount.textContent = 0;
+            cartCountMobile.textContent = 0;
+          });
+        } catch (error) {
+          console.error(error);
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "An error occurred",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } finally {
+          submitButton.value = "Register Now";
+        }
+      });
+
+      // onAuthStateChanged(auth, (user) => {
+      //   if (user) {
+      //     const Toast = Swal.mixin({
+      //       toast: true,
+      //       position: "top-end",
+      //       showConfirmButton: false,
+      //       timer: 3000,
+      //       timerProgressBar: true,
+      //       didOpen: (toast) => {
+      //         toast.onmouseenter = Swal.stopTimer;
+      //         toast.onmouseleave = Swal.resumeTimer;
+      //       },
+      //     });
+      //     Toast.fire({
+      //       icon: "success",
+      //       title: "Signed in successfully",
+      //     });
+      //   } else {
+      //     const Toast = Swal.mixin({
+      //       toast: true,
+      //       position: "top-end",
+      //       showConfirmButton: false,
+      //       timer: 3000,
+      //       timerProgressBar: true,
+      //       didOpen: (toast) => {
+      //         toast.onmouseenter = Swal.stopTimer;
+      //         toast.onmouseleave = Swal.resumeTimer;
+      //       },
+      //     });
+      //     Toast.fire({
+      //       icon: "error",
+      //       title: "Signed out successfully",
+      //     });
+      //   }
+      // });
+    </script>
   </body>
 </html>

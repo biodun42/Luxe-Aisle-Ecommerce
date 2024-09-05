@@ -287,8 +287,8 @@ footer,
 
 /* Signin.html */
 .signin {
+  padding: 50px 60px 100px 60px;
   width: 100%;
-  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -365,19 +365,20 @@ footer,
   font-style: normal;
   font-weight: 400;
 }
-#login {
+#button {
   width: 100%;
   max-width: 400px;
   background-color: #0e1422;
   border: none;
   border-radius: 5px;
   font-family: "inter", sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 500;
   color: white;
   cursor: pointer;
 }
+
 .signin p {
   font-family: "inter", sans-serif;
   font-size: 15px;

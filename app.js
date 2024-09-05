@@ -362,108 +362,10 @@ function goToProductPage() {
 }
 goToProductPage();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const formTitle = document.getElementById("form-title");
-  const loginForm = document.getElementById("login-form");
-  const loginButton = document.getElementById("login");
-  const forgotPassword = document.getElementById("forgot-password");
-  const switchAccount = document.getElementById("switch-account");
-  const passwordContainer = document.getElementById("password-container");
-
-  let isLogin = true;
-
-  loginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password")
-      ? document.getElementById("password").value
-      : "";
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
-    let valid = true;
-
-    if (!emailPattern.test(email)) {
-      valid = false;
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
-      Toast.fire({
-        icon: "error",
-        title: "Please enter a valid email address",
-      });
-    }
-
-    if (isLogin && password.length < 6) {
-      valid = false;
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
-      Toast.fire({
-        icon: "error",
-        title: "Password must be at least 6 characters",
-      });
-    }
-
-    if (valid) {
-      event.target.submit();
-      window.location.href = "homepage.html";
-    }
-  });
-
-  function switchForm() {
-    isLogin = !isLogin;
-    if (isLogin) {
-      formTitle.textContent = "Login";
-      loginButton.textContent = "Login";
-      forgotPassword.style.display = "block";
-      switchAccount.innerHTML =
-        'Don\'t have an account? <a href="#" id="switch-to-signup">Sign Up</a>';
-      passwordContainer.style.display = "block";
-    } else {
-      formTitle.textContent = "Sign Up";
-      loginButton.textContent = "Sign Up";
-      forgotPassword.style.display = "none";
-      switchAccount.innerHTML =
-        'Already have an account? <a href="#" id="switch-to-login">Login</a>';
-      passwordContainer.style.display = "none";
-    }
-    addSwitchLinkEventListener();
-  }
-
-  function addSwitchLinkEventListener() {
-    const switchLink =
-      document.getElementById("switch-to-signup") ||
-      document.getElementById("switch-to-login");
-    switchLink.addEventListener("click", function (event) {
-      event.preventDefault();
-      switchForm();
-    });
-  }
-
-  addSwitchLinkEventListener();
-});
-
 const signOut = document.getElementById("sign_out");
 function signOutUser() {
   localStorage.removeItem("cart");
-  window.location.href = "index.html";
+  window.location.href = "homepage.html";
 }
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -12,6 +12,7 @@ html {
 body.active {
   position: fixed;
   max-width: 100%;
+  scrollbar-width: none;
 }
 .discount {
   background-color: #0e1422;
@@ -176,6 +177,7 @@ header {
 }
 .off-screen-menu.active {
   right: 0;
+  max-width: 100%;
 }
 .Links2 {
   display: flex;

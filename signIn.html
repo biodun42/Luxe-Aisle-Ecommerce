@@ -19,32 +19,16 @@
       </div>
       <div class="links">
         <ul>
-          <li><a href="#discount">Home</a></li>
-          <li><a href="#discount">Collection</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Collection</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
       <div class="right-header">
-        <div class="top-search-bar">
-          <img src="images/Search.svg" alt="" />
-          <input type="text" placeholder="Search products" />
-        </div>
-        <button id="carting">
-          <a href="cart.html">
-            <img src="images/Cart.svg" alt="" />
-            <span id="cart-count">0</span>
-          </a>
-        </button>
         <img src="images/User.svg" alt="" />
       </div>
       <div class="split">
-        <button id="carting">
-          <a href="#discount">
-            <img src="images/Cart.svg" alt="" />
-            <span id="cart-count2">0</span>
-          </a>
-        </button>
         <div class="hamburger-menu">
           <div class="hambar bar1"></div>
           <div class="hambar bar2"></div>
@@ -57,14 +41,11 @@
           <h1>L U X E</h1>
         </div>
         <ul class="Links2">
-          <li class="nav"><a href="#discount">Home</a></li>
-          <li class="nav"><a href="#discount">Collection</a></li>
+          <li class="nav"><a href="#">Home</a></li>
+          <li class="nav"><a href="#">Collection</a></li>
           <li class="nav"><a href="#">About</a></li>
           <li class="nav"><a href="#">Contact</a></li>
         </ul>
-        <div class="br">
-          <h4><a href="#discount">Cart</a></h4>
-        </div>
         <div class="br">
           <h4 class="nav"><a href="#">Profile</a></h4>
           <img class="nav" src="images/User.svg" alt="" />
@@ -83,19 +64,37 @@
           <span>or</span>
           <div class="line"></div>
         </div>
-        <form class="form" id="login-form" action="https://formspree.io/f/xrbzkbgz" method="POST">
+        <form
+          class="form"
+          id="login-form"
+          action="https://formspree.io/f/xrbzkbgz"
+          method="POST"
+        >
           <div>
             <label for="Email">Email</label>
-            <input type="text" id="email" name="email" required />
+            <input
+              type="text"
+              id="email"
+              name="email"
+              required
+              autocomplete="on"
+            />
           </div>
           <div id="password-container">
             <label for="Password">Password</label>
-            <input type="password" id="password" name="password" />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="on"
+            />
           </div>
-          <button id="login" type="submit">Login</button>
+          <input type="submit" value="Login" id="button" />
         </form>
-        <p id="forgot-password">Forgot your password? <a href="#">Reset it</a></p>
-        <p id="switch-account">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
+        <p id="forgot-password">
+          Forgot your password? <a href="#">Reset it</a>
+        </p>
+        <p>Don't have an account? <a href="index.html">Sign Up</a></p>
       </div>
     </section>
     <footer class="fade2">
@@ -147,5 +146,63 @@
     </div>
     <script src="app.js"></script>
     <script src="script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+      import {
+        signInWithEmailAndPassword,
+        getAuth,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDYwTm46t-uDcw_721YefR81GNTVgQi_hI",
+        authDomain: "luxe-aisle-ecommerce.firebaseapp.com",
+        projectId: "luxe-aisle-ecommerce",
+        storageBucket: "luxe-aisle-ecommerce.appspot.com",
+        messagingSenderId: "102232001935",
+        appId: "1:102232001935:web:f92a186dd496d3b96e8ffa",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const loginForm = document.getElementById("login-form");
+      loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const target = e.target;
+        const email = target.email.value;
+        const password = target.password.value;
+        const button = target.button;
+
+        try {
+          button.value = "Logging in...";
+
+          const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Logged in successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            window.location.href = "homepage.html";
+            localStorage.removeItem("cart");
+            const cartCount = document.getElementById("cart-count");
+            const cartCountMobile = document.getElementById("cart-count2");
+
+            cartCount.textContent = 0;
+            cartCountMobile.textContent = 0;
+          });
+        } catch (error) {
+          console.error(error);
+        } finally {
+          button.value = "Login";
+        }
+      });
+    </script>
   </body>
 </html>

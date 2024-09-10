@@ -251,20 +251,12 @@
             icon: "success",
             title: `Welcome, ${user.displayName}`,
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2500,
           }).then(() => {
             window.location.href = "homepage.html";
             localStorage.removeItem("cart");
-            const cartCount = document.getElementById("cart-count");
-            const cartCountMobile = document.getElementById("cart-count2");
-
-            if (cartCount) cartCount.textContent = 0;
-            if (cartCountMobile) cartCountMobile.textContent = 0;
           });
         } catch (error) {
-          // Handle errors
-          let errorMessage = "An error occurred during Google login.";
-
           Swal.fire({
             position: "top-end",
             icon: "error",

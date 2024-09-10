@@ -267,12 +267,6 @@ document.addEventListener("DOMContentLoaded", () => {
   totalPriceSpan.innerText = `$${total.toFixed(2)}`;
 });
 
-function orderComplete(event) {
-  event.preventDefault();
-  localStorage.removeItem("cart");
-  window.location.href = "afterpayment.html";
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const checkoutButton = document.getElementById("checkout-button");
   checkoutButton.addEventListener("click", (event) => {
@@ -369,7 +363,7 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
+        observer.unobserve(entry.target);d
       }
     });
   }, observerOptions);

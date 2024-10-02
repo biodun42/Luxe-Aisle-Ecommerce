@@ -258,14 +258,14 @@
           });
         } catch (error) {
           Swal.fire({
-        position: "top-end",
-        icon: "error",
-        title: "Google sign-in failed: " + error.message,
-        showConfirmButton: false,
-        timer: 2500,
+            position: "top-end",
+            icon: "error",
+            title: "Google sign-in failed: " + error.message,
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        }
       });
-      });
-
       onAuthStateChanged(auth, (user) => {
         if (user) {
           Swal.fire({

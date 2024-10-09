@@ -57,7 +57,7 @@
       </div>
     </header>
     <section class="first-body-cart">
-      <h1 id="form-title" class="fade2">Create Account</h1>
+      <h1 id="form-title">Create Account</h1>
       <div class="signin fade1">
         <button id="google-btn">
           <img src="images/Google.svg" alt="" />
@@ -120,24 +120,24 @@
       </div>
       <div class="column2">
         <h4>Support</h4>
-        <h3>FAQ</h3>
-        <h3>Terms of use</h3>
-        <h3>Privacy Policy</h3>
+        <h3 class="na">FAQ</h3>
+        <h3 class="na">Terms of use</h3>
+        <h3 class="na">Privacy Policy</h3>
       </div>
       <div class="column2">
         <h4>Company</h4>
-        <h3>About us</h3>
-        <h3>Contact</h3>
-        <h3>Careers</h3>
+        <h3 class="na">About us</h3>
+        <h3 class="na">Contact</h3>
+        <h3 class="na">Careers</h3>
       </div>
       <div class="column2">
         <h4>Shop</h4>
-        <h3><a href="#discount">Collection</a></h3>
-        <h3><a href="#discount">My Account</a></h3>
-        <h3><a href="#discount">Cart</a></h3>
+        <h3 class="na"><a href="#discount">Collection</a></h3>
+        <h3 class="na"><a href="#discount">My Account</a></h3>
+        <h3 class="na"><a href="#discount">Cart</a></h3>
       </div>
       <div class="column3">
-        <h2>Accepted Payments</h2>
+        <h2 class="na">Accepted Payments</h2>
         <div>
           <img src="images/Mastercard.svg" alt="" />
           <img src="images/Amex.svg" alt="" />
@@ -157,10 +157,6 @@
       import {
         createUserWithEmailAndPassword,
         getAuth,
-        GoogleAuthProvider,
-        signInWithPopup,
-        EmailAuthProvider,
-        linkWithCredential,
       } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
       import {
@@ -254,77 +250,34 @@
       const navLinks = document.querySelectorAll(".na");
       navLinks.forEach((link) => {
         link.addEventListener("click", () => {
-          Swal.fire({
+          const Toast = Swal.mixin({
+            toast: true,
             position: "top-end",
-            icon: "info",
-            title: "Sign in to access this feature",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            },
+          });
+          Toast.fire({
+            icon: "info",
+            title: "Please sign in to access this feature",
           });
         });
       });
 
       // Google Sign-in
       const googleButton = document.getElementById("google-btn");
-      googleButton.addEventListener("click", async () => {
-        const provider = new GoogleAuthProvider();
-        try {
-          const result = await signInWithPopup(auth, provider);
-          const user = result.user;
-
-          // Ask user to create a new password
-          Swal.fire({
-            title: "Create a password for your account",
-            input: "password",
-            inputLabel: "Password",
-            inputPlaceholder: "Enter your password",
-            inputAttributes: {
-              maxlength: 20,
-              autocapitalize: "off",
-              autocorrect: "off",
-            },
-            showCancelButton: true,
-          }).then(async (result) => {
-            if (result.value) {
-              const password = result.value;
-
-              // Create EmailAuthProvider credential using Google email and new password
-              const credential = EmailAuthProvider.credential(
-                user.email,
-                password
-              );
-
-              // Link the Google account with Email/Password account
-              await linkWithCredential(user, credential);
-
-              // Add user data to Firestore
-              await addDoc(usersCollection, {
-                name: user.displayName,
-                email: user.email,
-                uid: user.uid,
-              });
-
-              // Show success message and redirect
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: `Welcome, ${user.displayName}`,
-                showConfirmButton: false,
-                timer: 1500,
-              }).then(() => {
-                window.location.href = "homepage.html";
-              });
-            }
-          });
-        } catch (error) {
-          Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "Google sign-in failed: " + error.message,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+      googleButton.addEventListener("click", () => {
+        Swal.fire({
+          position: "top-end",
+          icon: "info",
+          title: "Feature coming soon",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
 
       const getloggedInUser = async (id) => {

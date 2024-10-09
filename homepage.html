@@ -303,36 +303,20 @@
 
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          const Toast = Swal.mixin({
-            toast: true,
+          Swal.fire({
             position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            },
-          });
-          Toast.fire({
             icon: "success",
-            title: "Welcome back!",
+            title: "User is signed in",
+            showConfirmButton: false,
+            timer: 1500,
           });
         } else {
-          const Toast = Swal.mixin({
-            toast: true,
+          Swal.fire({
             position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            },
-          });
-          Toast.fire({
             icon: "error",
-            title: "Please sign in to access this page",
+            title: "User is signed out",
+            showConfirmButton: false,
+            timer: 1500,
           }).then(() => {
             window.location.href = "login.html";
           });

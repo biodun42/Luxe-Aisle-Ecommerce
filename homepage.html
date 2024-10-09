@@ -284,39 +284,41 @@
       const signOutButtons = document.querySelectorAll("#sign-out");
       signOutButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          signOut(auth);
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Signed out successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          })
-            .then(() => {
+          try {
+            signOut(auth);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Signed out successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
               window.location.href = "login.html";
-            })
-            .catch((error) => {
-              console.error(error);
             });
+          } catch (error) {
+            console.log(error);
+          }
         });
       });
 
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User is signed in",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          console.log("User is signed in");
         } else {
-          Swal.fire({
+          const Toast = Swal.mixin({
+            toast: true,
             position: "top-end",
-            icon: "error",
-            title: "User is signed out",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            },
+          });
+          Toast.fire({
+            icon: "error",
+            title: "You are not signed in",
           }).then(() => {
             window.location.href = "login.html";
           });

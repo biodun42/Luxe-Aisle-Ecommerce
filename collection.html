@@ -72,8 +72,10 @@
       </div>
     </header>
     <h1 id="collection">Collections</h1>
-    <section class="third-body-homepage fade2" id="third-body-homepage">
-    </section>
+    <section
+      class="third-body-homepage fade2"
+      id="third-body-homepage"
+    ></section>
     <section class="fifth-body-homepage fade2">
       <div class="fifth-body-left">
         <h1>Join Our Newsletter</h1>
@@ -156,20 +158,20 @@
       const signOutButtons = document.querySelectorAll("#sign-out");
       signOutButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          signOut(auth);
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Signed out successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          })
-            .then(() => {
+          try {
+            signOut(auth);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Signed out successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
               window.location.href = "login.html";
-            })
-            .catch((error) => {
-              console.error(error);
             });
+          } catch (error) {
+            console.log(error);
+          }
         });
       });
     </script>

@@ -175,20 +175,20 @@
       const signOutButtons = document.querySelectorAll("#sign-out");
       signOutButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          signOut(auth);
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Signed out successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          })
-            .then(() => {
+          try {
+            signOut(auth);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Signed out successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
               window.location.href = "login.html";
-            })
-            .catch((error) => {
-              console.error(error);
             });
+          } catch (error) {
+            console.log(error);
+          }
         });
       });
     </script>
